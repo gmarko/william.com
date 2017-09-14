@@ -1,0 +1,33 @@
+<ul class="side-nav-list">
+	<li class="self-portrait-li"><div class="user-view">
+		<div class="background">
+			<img src="assets/images/self_portrait.jpg" class="self-portrait">
+		</div>
+	</div></li>
+
+	<li><div class="intro-name">William Huang</div></li>
+
+	<!--<li><a class="waves-effect" routerLinkActive="active-link" [routerLink]="['/', 'home', 'dashboard']"><i class="material-icons">dashboard</i>Dashboard</a></li>-->
+	<li><a class="waves-effect waves-green" [routerLink]="['/', 'books']">
+		<i class="material-icons">library_books</i>Book Review</a>
+	</li>
+
+
+	<!--<li><div class="divider"></div></li>-->
+	<!--<li><a class="waves-effect subheader">My Houses</a></li>-->
+
+	<div *ngIf="loggedIn">
+		<li><div class="divider"></div></li>
+		<li><a class="waves-effect waves-red" (click)="logout()">Log Out</a></li>
+	</div>
+
+	<li><div class="divider"></div></li>
+	<li class="center-align media_group">
+		<a id="media_group_no_hover">
+			<img (click)="goToTwitter()" src="assets/images/twitter.svg" class="social_media_icon">
+			<img (click)="goToLinkedIn()" src="assets/images/linkedin.svg" class="social_media_icon">
+			<img (click)="goToGithub()" src="assets/images/github.svg" class="social_media_icon">
+		</a>
+	</li>
+
+</ul>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+	font-family: 'Open Sans', 'Helvetica Neue', 'Times New Roman'
+}
+
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.side-nav li>a:hover {
+	background-color: white;
+}
+
+.success-toast {
+	background-color: green;
+}
+
+.warning-toast {
+	background-color: orange;
+}
+
+.error-toast {
+	background-color: red;
+}

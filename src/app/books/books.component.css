@@ -1,0 +1,30 @@
+.books {
+	width: 90%;
+	margin: 20px auto;
+}
+
+.card.horizontal .card-image img {
+	width: 150px;
+}
+
+h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.author {
+	font-style: italic;
+}
+
+.rating {
+	float: right;
+	font-size: 1.4em;
+}
+
+.description {
+	margin-top: 10px;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+	color: green;
+}

@@ -1,0 +1,24 @@
+<div class="books">
+
+	<h1 class="title">William's Book Review</h1>
+
+	<div class="col s12 m7" *ngFor="let book of books">
+		<div class="card horizontal">
+			<div class="card-image">
+				<img class="cover-image" [src]="book.coverPhoto">
+			</div>
+			<div class="card-stacked">
+				<div class="card-content">
+					<span class="rating">{{book.rating}} / 10</span>
+					<h4>{{book.title}}</h4>
+					<span class="author">{{book.author}} - {{book.date_added | date: 'MMM dd, y'}}</span>
+					<div class="description">{{book.description}}</div>
+				</div>
+				<div class="card-action right-align">
+					<a target="_blank" [href]="book.mediumLink">Read the full review on medium</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

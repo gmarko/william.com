@@ -1,0 +1,18 @@
+<div class="signin">
+
+	<h4 class="sign-in-title">Admin Sign In</h4>
+
+	<form (ngSubmit)="login()" autocomplete="off" novalidate [formGroup]="loginForm">
+		<div class="input-field">
+			<input type="email" id="loginEmail" name="email" formControlName="email" class="validate">
+			<label for="loginEmail">Email</label>
+		</div>
+		<div class="input-field password-field">
+			<input type="password" class="validate" id="loginPassword" name="password" formControlName="password">
+			<label for="loginPassword">Password:</label>
+		</div>
+
+		<button type="submit" class="btn btn-primary right">Login</button>
+	</form>
+
+</div>

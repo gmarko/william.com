@@ -1,0 +1,17 @@
+<form>
+	<div class="file-field input-field">
+		<div class="btn">
+			<span>File</span>
+			<input type="file" (change)="changeListener($event)">
+		</div>
+		<div class="file-path-wrapper">
+			<input class="file-path validate" type="text">
+		</div>
+	</div>
+</form>
+
+<img class="image">
+
+<button (click)="uploadBook()">Upload</button>
+
+<a class="waves-effect waves-light btn red" (click)="logout()">Log Out</a>
