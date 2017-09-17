@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BookService} from '../services/book.service';
+import {BOOKS_PAGE_SIZE, BookService} from '../services/book.service';
 import {Book} from '../shared/models/book';
 import * as _ from 'lodash';
 
@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 export class BooksComponent implements OnInit {
 
 	books: Book[];
+	allBooksLoaded = false;
 
 	constructor(
 		private bookService: BookService
@@ -18,10 +19,30 @@ export class BooksComponent implements OnInit {
 
 	ngOnInit() {
 
-		this.bookService.getBooks().subscribe(
+		this.bookService.getInitialBooks().subscribe(
 			books => {
 				console.log('books recieved: ', books);
-				this.books = _.cloneDeep(books);
+				this.books = _.reverse(_.cloneDeep(books));
+				if (this.books.length < BOOKS_PAGE_SIZE) {
+					console.log('books length too short');
+					this.allBooksLoaded = true;
+				}
+			}
+		);
+
+	}
+
+	loadMoreBooks() {
+
+		this.bookService.loadNextPage(_.last(this.books).key).subscribe(
+			books => {
+				const loadedBooks = _.reverse(_.cloneDeep(books));
+				for (const book of loadedBooks) {
+					this.books.push(book);
+				}
+				if (books.length === 0 || this.books.length % BOOKS_PAGE_SIZE !== 0) {
+					this.allBooksLoaded = true;
+				}
 			}
 		);
 

@@ -7,10 +7,4 @@ import {Component, EventEmitter} from '@angular/core';
 })
 export class AppComponent {
 
-	sidenavActions = new EventEmitter<any>();
-
-	shownav() {
-		this.sidenavActions.emit({action: "sideNav", params: ['show']});
-	}
-
 }

@@ -1,6 +1,24 @@
+.title-nav {
+	background-color: #03A9F4;
+}
+
 .books {
 	width: 90%;
 	margin: 20px auto;
+}
+
+.intro-paragraph {
+	font-family: 'Lato', sans-serif;
+	width: 60%;
+	font-size: 1.8em;
+	margin: 20px auto 30px auto;
+	text-align: center;
+}
+
+.quote-author {
+	font-family: 'Lato', sans-serif;
+	text-align: right;
+	font-size: 0.6em;
 }
 
 .card.horizontal .card-image img {

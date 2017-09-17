@@ -1,0 +1,20 @@
+.title-nav {
+	background-color: #03A9F4;
+}
+
+.add-book-section {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.row {
+	margin-bottom: 0;
+}
+
+.input-field {
+	margin-top: 0;
+}
+
+.cover-preview {
+	width: 66%;
+}

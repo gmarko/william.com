@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-	font-family: 'Open Sans', 'Helvetica Neue', 'Times New Roman'
+	font-family: 'Open Sans', sans-serif;
 }
 
 a:hover {
 	text-decoration: none;
 	cursor: pointer;
+}
+
+a:focus {
+	text-decoration: none;
 }
 
 .side-nav li>a:hover {

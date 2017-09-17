@@ -1,17 +1,80 @@
-<form>
-	<div class="file-field input-field">
-		<div class="btn">
-			<span>File</span>
-			<input type="file" (change)="changeListener($event)">
-		</div>
-		<div class="file-path-wrapper">
-			<input class="file-path validate" type="text">
-		</div>
+<nav class="title-nav">
+	<div class="nav-wrapper">
+		<a class="brand-logo center">Admin Panel</a>
+		<ul class="right">
+			<li><a class="waves-effect waves-light btn red" (click)="logout()">Log Out</a></li>
+		</ul>
 	</div>
-</form>
+</nav>
 
-<img class="image">
 
-<button (click)="uploadBook()">Upload</button>
+<div class="add-book-section">
 
-<a class="waves-effect waves-light btn red" (click)="logout()">Log Out</a>
+	<hr>
+
+	<div class="row">
+
+		<h4 class="center-align">Add Book</h4>
+
+	</div>
+
+	<form (ngSubmit)="uploadBook()" autocomplete="off" [formGroup]="createBookForm">
+		<div class="row">
+			<div class="input-field col s6">
+				<input formControlName="title" id="title" type="text" class="validate">
+				<label for="title">Title</label>
+			</div>
+			<div class="input-field col s6">
+				<input formControlName="author" id="author" type="text" class="validate">
+				<label for="author">Author</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="rating" id="rating" type="text" class="validate">
+				<label for="rating">Rating</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="author" id="mediumLink" type="text" class="validate">
+				<label for="mediumLink">Medium Link</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="description" formControlName="description" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="description" class="landing-label">Description:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="file-field input-field col s12">
+				<div class="btn">
+					<span>File</span>
+					<input type="file" (change)="changeListener($event)">
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s8">
+				<img class="image cover-preview">
+			</div>
+			<div class="col s4">
+				<button class="btn waves-effect waves-light right-align" type="submit" name="action">Upload
+					<i class="material-icons right">file_upload</i>
+				</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+

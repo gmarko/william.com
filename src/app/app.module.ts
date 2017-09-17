@@ -9,7 +9,6 @@ import {AngularFireModule} from 'angularfire2';
 import {RouterModule} from '@angular/router';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error404/error404.component';
 import {routes} from './routes';
 import {firebaseConfig} from '../environments/firebase.config';
@@ -21,16 +20,23 @@ import { AdminComponent } from './admin/admin.component';
 import {AuthGuard} from './shared/guards/auth.guard';
 import { SigninComponent } from './signin/signin.component';
 import {SignedInGuard} from './shared/guards/signedIn.guard';
+import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
+import { HomeComponent } from './home/home.component';
+import { LedCubeComponent } from './projects/collection/led-cube/led-cube.component';
+import { ProjectComponent } from './projects/project/project.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		HomeComponent,
 		Error404Component,
 		SideNavComponent,
 		BooksComponent,
 		AdminComponent,
-		SigninComponent
+		SigninComponent,
+		ProjectsListComponent,
+		HomeComponent,
+		LedCubeComponent,
+		ProjectComponent
 	],
 	imports: [
 		BrowserModule,

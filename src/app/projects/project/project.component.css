@@ -1,0 +1,8 @@
+.show-nav-button {
+	position: fixed;
+	width: 48px;
+	top: 18px;
+	left: 20px;
+	z-index: 9999;
+	color: white;
+}

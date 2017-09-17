@@ -5,6 +5,9 @@ import {Book} from '../shared/models/book';
 import * as firebase from 'firebase';
 import {Subject} from 'rxjs/Subject';
 import {ERROR_TOAST, SUCCESS_TOAST, ToastService} from './toast.service';
+import {FirebaseListFactoryOpts} from 'angularfire2/database/interfaces';
+
+export const BOOKS_PAGE_SIZE = 15;
 
 @Injectable()
 export class BookService {
@@ -14,10 +17,29 @@ export class BookService {
 	    private toastService: ToastService
 	) { }
 
-	getBooks() {
+	getInitialBooks() {
 
-		const bookKeys$ = this.findBookKeys();
+		const bookKeys$ = this.findBookKeys({
+			query: {
+				limitToLast: BOOKS_PAGE_SIZE
+			}
+		});
 		return this.findBooksForBookKeys(bookKeys$);
+
+	}
+
+	loadNextPage(currentBookKey: string) {
+
+		const nextPageKeys$ = this.findBookKeys({
+			query: {
+				orderByKey: true,
+				endAt: currentBookKey,
+				limitToLast: BOOKS_PAGE_SIZE + 1
+			}
+		});
+
+		return this.findBooksForBookKeys(nextPageKeys$)
+			.map(books => books.slice(0, books.length - 1));
 
 	}
 
@@ -65,8 +87,8 @@ export class BookService {
 
 	}
 
-	findBookKeys(): Observable<string[]> {
-		return this.db.list('bookKeys')
+	findBookKeys(query: FirebaseListFactoryOpts = {}): Observable<string[]> {
+		return this.db.list('bookKeys', query)
 			.map(books => {
 				return books.map(book => book.$key);
 			});

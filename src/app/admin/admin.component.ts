@@ -3,6 +3,7 @@ import {BookService} from '../services/book.service';
 import {ERROR_TOAST, ToastService} from '../services/toast.service';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
 	selector: 'admin',
@@ -10,6 +11,8 @@ import {Router} from '@angular/router';
 	styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
+	createBookForm: FormGroup;
 
 	bookImage;
 	bookDetails;
@@ -19,8 +22,17 @@ export class AdminComponent implements OnInit {
 		private bookService: BookService,
 		private toastService: ToastService,
 	    private auth: AngularFireAuth,
-	    private router: Router
-	) { }
+	    private router: Router,
+	    private fb: FormBuilder
+	) {
+		this.createBookForm = this.fb.group({
+			title: ['', Validators.required],
+			author: ['', Validators.required],
+			rating: ['', Validators.required],
+			description: ['', Validators.required],
+			mediumLink: ['', Validators.required]
+		});
+	}
 
 	ngOnInit() {
 	}
@@ -39,17 +51,11 @@ export class AdminComponent implements OnInit {
 	}
 
 	uploadBook() {
-		if (this.bookImage) {
-			const book = {
-				title: 'The dark knight',
-				author: 'me',
-				rating: '3.4',
-				mediumLink: 'blahblah.com'
-			};
-
-			this.bookDetails = this.bookService.addBook(book, this.bookImage);
+		if (this.bookImage && this.createBookForm.valid) {
+			this.bookDetails = this.bookService.addBook(this.createBookForm.value, this.bookImage);
+			this.createBookForm.reset();
 		} else {
-			this.toastService.showToast(ERROR_TOAST, 'Must choose an image!');
+			this.toastService.showToast(ERROR_TOAST, 'Form not complete!');
 		}
 	}
 

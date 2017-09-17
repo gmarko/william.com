@@ -1,0 +1,94 @@
+<!--<nav class="title-nav">-->
+	<!--<div class="nav-wrapper">-->
+		<!--<a class="brand-logo center">Project: 4x4x4 RGB LED Cube</a>-->
+	<!--</div>-->
+<!--</nav>-->
+
+<div class="cover-image">
+	<div class="project-title">The 4x4x4 RGB LED Cube</div>
+	<span class="project-date">Completed September 2017</span>
+</div>
+
+<div class="led-cube">
+
+	<div class="row">
+		<div class="col s12 m9 l10">
+			<div id="overview" class="section scrollspy">
+
+				<h2 class="center-align">Overview</h2>
+
+				<div class="row project-content">
+					<div class="col s6">
+						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2F_DSC7541.JPG?alt=media&token=70870f69-fa82-463f-87a7-d81b6a4046ec">
+					</div>
+					<div class="col s6 project-description">
+						<p>This cube was three years in the making. </p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="cube" class="section scrollspy">
+
+				<h2 class="center-align">The Cube</h2>
+
+				<div class="row project-content">
+					<div class="col s4">
+						<img class="materialboxed project-photo" src="">
+					</div>
+					<div class="col s8 project-description">
+						<p></p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="shift" class="section scrollspy">
+
+				<h2 class="center-align">The Shift Register</h2>
+
+				<div class="row project-content">
+					<div class="col s4">
+						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Flearn_arduino_shift_register.png?alt=media&token=d203132e-ce4a-46b3-842b-fa10161d68b2">
+					</div>
+					<div class="col s8 project-description">
+						<p>
+							The 74HC595 shift register was used to solve the problem of controlling
+							48 LED cathodes with a single Arduino chip. The shift register is used
+							to store 8 bits of information and output it using 8 pins on the chip. It can
+							be controlled by only three pins from a micro-controller and can be daisy-chained.
+						</p>
+						<p>
+							To push information into the register you use the Data and Clock pins to push a
+							string of bits into the chip which can then be pushed on to the next chip connected
+							in the chain. In the cube, I used a total of six registers to control all 48 cathodes coming
+							from the cube.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="code" class="section scrollspy">
+				<p>Content </p>
+			</div>
+		</div>
+		<div class="col hide-on-small-only m3 l2">
+			<div class="toc-wrapper pinned">
+				<div class="toc-margin">
+
+					<div style="height: 1px;">
+						<div class="toc-header">Table of Contents</div>
+						<ul class="section table-of-contents">
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#cube">The Cube</a></li>
+							<li><a href="#shift">Shift Registers</a></li>
+							<li><a href="#code">The Code</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

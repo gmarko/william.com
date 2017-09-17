@@ -16,5 +16,6 @@ export const dbData = {
 			'description': 'This was a terrific book.',
 			'coverPhoto': 'https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/bookImages%2Fdarktower2.jpg?alt=media&token=571d8a37-4013-4363-aad4-01625a773f58'
 		}
+
 	]
 };
