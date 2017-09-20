@@ -1,1 +1,30 @@
-<a [routerLink]="['/', 'project', 'led_cube']">Led Cube</a>
+<nav class="title-nav">
+	<div class="nav-wrapper">
+		<a class="brand-logo center">Projects</a>
+	</div>
+</nav>
+
+
+<div class="project-container">
+
+	<div class="row">
+		<div class="col m6">
+			<div (click)="goToLEDCube()" class="card project-card">
+				<div class="card-image">
+					<img src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Foverview.jpg?alt=media&token=6fa255f2-8974-4f97-b8bf-64fbc365d7a9">
+					<span class="card-title right-align">4x4x4 RGB LED Cube</span>
+				</div>
+				<div class="card-content">
+					<p class="right-align date">
+						Added Sept. 18 2017
+					</p>
+					<p>
+						The RGB LED Cube is capable of displaying 15 degrees of brightness on
+						each of it's 192 LEDs. All controlled by a single Arduino chip.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

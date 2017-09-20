@@ -1,0 +1,17 @@
+.project-container {
+	width: 90%;
+	margin: 30px auto;
+}
+
+.card .card-image .card-title {
+	right: 0;
+}
+
+.project-card {
+	cursor: pointer;
+}
+
+.card .card-content p.date {
+	color: #9E9E9E;
+	margin-bottom: 8px;
+}

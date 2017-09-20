@@ -1,0 +1,46 @@
+<div class="navbar-fixed">
+	<nav class="title-nav">
+		<div class="nav-wrapper">
+			<i (click)="back()" class="material-icons back_arrow">arrow_back</i>
+			<a class="brand-logo center">Tutorial: Bit Angle Modulation</a>
+		</div>
+	</nav>
+</div>
+
+<div class="container tutorial">
+
+	<p class="flow-text">
+		Bit Angle Modulation (BAM) was the technique used to control all 192 LEDs in the
+		<a [routerLink]="['/', 'project', 'led_cube']">4x4x4 RGB LED Cube Project.</a>
+	</p>
+
+	<p class="flow-text">
+		BAM works by setting a n-bit brightness value for each LED. For example, in a
+		4-bit example, the brightness can be set to 13, or <span class="code">1101</span> in binary.
+		Each bit has a value associated with it that is necessary for BAM.
+	</p>
+
+	<img class="materialboxed tutorial-photo"
+		 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/tutorialImages%2Fbit_angle_modulation%2Fbit_values.jpg?alt=media&token=75c6b629-7669-490b-8871-2b24c38f6a1d">
+
+	<p class="flow-text">
+		Each iteration of BAM consists of n interruptions. (n as in n bit BAM) In the case of
+		15 degree brightness, each iteration consists of 15 interruptions. In each interruption
+		we will run through each LED and turn them on according to their brightness value. In the case
+		of the led cube, each interruption is executed by the arduino interrupt service routine.
+	</p>
+
+	<p class="flow-text">
+		To display the right-most bit, (<span class="code">0001</span>) we will run through the first iteration and any LED
+		with the last bit as a one will be turned on and off, and if it is a zero
+		it will simply pause on the LED and skip it.
+	</p>
+
+	<p class="flow-text">
+		Then the next bit over (<span class="code">0010</span>) will have two iterations, because it is a two-value bit.
+		Then the next bit (<span class="code">0100</span>) is run with four iterations, and eight iterations for the last bit.
+		(<span class="code">1000</span>)
+	</p>
+
+</div>
+

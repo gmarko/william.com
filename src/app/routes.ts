@@ -9,6 +9,8 @@ import {ProjectsListComponent} from './projects/projects-list/projects-list.comp
 import {HomeComponent} from './home/home.component';
 import {LedCubeComponent} from './projects/collection/led-cube/led-cube.component';
 import {ProjectComponent} from './projects/project/project.component';
+import {TutorialsListComponent} from './tutorials/tutorials-list/tutorials-list.component';
+import {BitAngleModulationComponent} from './tutorials/collection/bit-angle-modulation/bit-angle-modulation.component';
 
 export const routes: Routes = [
 
@@ -49,6 +51,19 @@ export const routes: Routes = [
 				path: 'projects',
 				component: ProjectsListComponent
 			},
+			{
+				path: 'tutorials',
+				component: TutorialsListComponent
+			},
+			{
+				path: 'tutorial',
+				children: [
+					{
+						path: 'bit_angle_modulation',
+						component: BitAngleModulationComponent
+					}
+				]
+			}
 		]
 	},
 	{

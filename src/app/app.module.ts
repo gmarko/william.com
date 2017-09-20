@@ -24,6 +24,8 @@ import { ProjectsListComponent } from './projects/projects-list/projects-list.co
 import { HomeComponent } from './home/home.component';
 import { LedCubeComponent } from './projects/collection/led-cube/led-cube.component';
 import { ProjectComponent } from './projects/project/project.component';
+import { TutorialsListComponent } from './tutorials/tutorials-list/tutorials-list.component';
+import {BitAngleModulationComponent} from './tutorials/collection/bit-angle-modulation/bit-angle-modulation.component';
 
 @NgModule({
 	declarations: [
@@ -36,7 +38,9 @@ import { ProjectComponent } from './projects/project/project.component';
 		ProjectsListComponent,
 		HomeComponent,
 		LedCubeComponent,
-		ProjectComponent
+		ProjectComponent,
+		TutorialsListComponent,
+		BitAngleModulationComponent
 	],
 	imports: [
 		BrowserModule,

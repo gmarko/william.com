@@ -28,3 +28,63 @@ a:focus {
 .error-toast {
 	background-color: red;
 }
+
+
+.title-nav {
+	background-color: #03A9F4;
+}
+
+.back_arrow {
+	margin-left: 60px;
+	padding-left: 18px;
+	cursor: pointer;
+	float: left;
+}
+
+/* MOBILE FIRST CLASSES */
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+/* DESKTOP FIRST CLASSES */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	nav .brand-logo {
+		font-size: 1.6em;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	nav .brand-logo {
+		font-size: 1.2em;
+	}
+}

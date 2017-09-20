@@ -13,16 +13,26 @@
 
 	<div class="row">
 		<div class="col s12 m9 l10">
+
 			<div id="overview" class="section scrollspy">
 
 				<h2 class="center-align">Overview</h2>
 
 				<div class="row project-content">
-					<div class="col s6">
-						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2F_DSC7541.JPG?alt=media&token=70870f69-fa82-463f-87a7-d81b6a4046ec">
+					<div class="col l6">
+						<img class="materialboxed project-photo"  data-caption="Overview of the whole project."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Foverview.jpg?alt=media&token=6fa255f2-8974-4f97-b8bf-64fbc365d7a9">
 					</div>
-					<div class="col s6 project-description">
-						<p>This cube was three years in the making. </p>
+					<div class="col l6 project-description">
+						<p>
+							This project was started and largely completed when I was in the tenth grade. It encompassed
+							everything I had learned from my time with electronics. It was built with the arduino platform
+							and powered by several neat pieces of technology, some of which you will read about below.
+						</p>
+						<p>
+							It was a lot of fun to build and code this project, and I had learned a lot in the process. It's probably
+							the last project I'll do with this platform, but it is one hell of a way to end things.
+						</p>
 					</div>
 				</div>
 
@@ -33,11 +43,53 @@
 				<h2 class="center-align">The Cube</h2>
 
 				<div class="row project-content">
-					<div class="col s4">
-						<img class="materialboxed project-photo" src="">
+					<div class="col l8 project-description">
+						<p>
+							The cube is made of 64 RGB LEDs arranged in a 4x4x4 form factor. Each LED has one
+							anode pin and three cathode pins, one for each colour. The anodes of each level were
+							soldered together and the cathodes of each pillar were soldered together. This resulted
+							in four anode connectors and 48 cathode connectors that needed to be controlled.
+						</p>
+						<p>
+							So in order to be able to control each individual LED and it's brightness for each colour,
+							a technique called Bit Angle Modulation was used. (See Below) This technique allows the 16 LEDs
+							to be controlled individually with a brightness level of 0-15 for each of the three colours.
+						</p>
+						<p>
+							The 48 cathode connections are controlled by individual transistors which are further controlled
+							by 6 shift registers powered by the Arduino Micro-controller. The 4 anode connections
+							are controlled by more powerful Mosfet Transistors also connected to the shift registers.
+						</p>
 					</div>
-					<div class="col s8 project-description">
-						<p></p>
+					<div class="col l4">
+						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fcube_close_up.JPG?alt=media&token=ee45f9f2-a51e-40e2-a56b-b4eeb8e98ed8">
+					</div>
+				</div>
+
+			</div>
+
+			<div id="atmega" class="section scrollspy">
+
+				<h2 class="center-align">Standalone Arduino</h2>
+
+				<div class="row project-content">
+
+					<div class="col l4">
+						<img class="materialboxed project-photo" data-caption="A closeup of the ATmega328P that powers the project"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fatmega_close_up.JPG?alt=media&token=c64596ca-5768-4650-a9b3-024eb8c1a758">
+					</div>
+
+					<div class="col l8 project-description">
+						<p>
+							This project is powered largely in part by the Arduino Platform, but in order
+							not to sacrifice a $35 controller, a standalone unit (The ATmega328P) had to be used. This also
+							allowed the chip to be inserted directly on the protoboard.
+						</p>
+						<p>
+							To program the chip once it was connected on the protoboard, a special programmer
+							board had to be used. Here's the one I used for this project:
+							<a href="http://www.kevindarrah.com/?page_id=1618">Buy Here</a>
+						</p>
 					</div>
 				</div>
 
@@ -48,21 +100,26 @@
 				<h2 class="center-align">The Shift Register</h2>
 
 				<div class="row project-content">
-					<div class="col s4">
-						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Flearn_arduino_shift_register.png?alt=media&token=d203132e-ce4a-46b3-842b-fa10161d68b2">
+					<div class="col l4">
+						<img class="materialboxed project-photo" data-caption="A diagram that shows how the shift register works."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Flearn_arduino_shift_register.png?alt=media&token=d203132e-ce4a-46b3-842b-fa10161d68b2">
 					</div>
-					<div class="col s8 project-description">
+					<div class="col l8 project-description">
 						<p>
-							The 74HC595 shift register was used to solve the problem of controlling
-							48 LED cathodes with a single Arduino chip. The shift register is used
+							The shift register is used
 							to store 8 bits of information and output it using 8 pins on the chip. It can
-							be controlled by only three pins from a micro-controller and can be daisy-chained.
+							be controlled by only three pins from a micro-controller and can be easily daisy-chained.
+						</p>
+						<p>
+							The 74HC595 shift register was used to solve the problem of pushing data to the
+							48 cathode and 4 anode connections with a single Arduino chip. A total of six daisy
+							chained shift registers were used in this project.
 						</p>
 						<p>
 							To push information into the register you use the Data and Clock pins to push a
 							string of bits into the chip which can then be pushed on to the next chip connected
-							in the chain. In the cube, I used a total of six registers to control all 48 cathodes coming
-							from the cube.
+							in the chain. The Latch pin is then used to push the bits to actual output pins
+							on the chip.
 						</p>
 					</div>
 
@@ -70,10 +127,115 @@
 
 			</div>
 
-			<div id="code" class="section scrollspy">
-				<p>Content </p>
+			<div id="BAM" class="section scrollspy">
+
+				<h2 class="center-align">Bit-Angle-Modulation (BAM)</h2>
+
+				<div class="row project-content">
+					<div class="col s12 project-description">
+						<div class="bit-angle">
+							<p>
+								Bit angle modulation in practise achieves the same result as Pulse Width Modulation (PWM),
+								but is applicable to a much greater scale. This is because each PWM LED requires a designated pin
+								on the arduino while BAM is capable of being run off of any pin from any device. (Including shift registers)
+							</p>
+							<p>
+								In this project a 4-bit BAM was used, enabling 16 degrees of brightness for each LED.
+								This works by cycling through the levels and lighting up LEDs depending on their brightness value.
+								The Arduino will do this fast enough for there to be a perceived brightness for each LED. You can read
+								more about it in this <a [routerLink]="['/', 'tutorial', 'bit_angle_modulation']">tutorial</a>.
+							</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
+
+			<div id="ISR" class="section scrollspy">
+
+				<h2 class="center-align">The Interrupt Service Routine</h2>
+
+				<div class="row project-content">
+					<div class="col l8 project-description">
+						<p>
+							The interrupt program is run by the Arduino's Timer 1 internal component.
+							This interrupt service runs at a speed of 250kHz. This speed can be controlled
+							by setting the Arduino's TCCR1A, TCCR1B, TIMSK1, and OCR1A registers to specific values.
+						</p>
+						<p>
+							This interrupt service controls the Bit Angle Modulation and pushes all the LED brightness
+							values to the shift registers.
+						</p>
+					</div>
+					<div class="col l4">
+						<img class="materialboxed project-photo" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2FISR.png?alt=media&token=9d484af9-f21f-4f0d-a6d9-79e37c0c853a">
+					</div>
+				</div>
+
+			</div>
+
+			<div id="code" class="section scrollspy">
+
+				<h2 class="center-align">The Code</h2>
+
+				<div class="row project-content center-align">
+
+					<p>
+						The code is all in one single arduino .ino file. You can download it <a (click)="getCode()">here</a>.
+					</p>
+
+				</div>
+
+			</div>
+
+			<div id="gallery" class="section scrollspy">
+
+				<h2 class="center-align">Gallery</h2>
+
+				<div class="row">
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="The project is powered by a single 9V battery running througn a 5V stepdown"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery1.jpg?alt=media&token=3dbc7c2d-554c-4be4-8a40-673df1d02c16">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="The programmer board for the ATmega328P"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery2.jpg?alt=media&token=5d625d8b-853c-4d4e-8f3b-44ecc7aaa587">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="All 7 chips that power the project"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery3.jpg?alt=media&token=94d424f7-ee67-48c7-ab05-2a301b24586b">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="Showcasing how the cathodes connect to the transistors"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery4.jpg?alt=media&token=117577b9-fe27-4e5e-bdfb-2d3d97e73632">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="Overview of the transistors that control the cathode leads"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery5.jpg?alt=media&token=d1e7a560-e8dc-46b0-8f77-550560d12747">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="LEDs all showing red."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery6.jpg?alt=media&token=855600d7-3ca2-49b6-8490-b448540d649a">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="LEDs all showing green."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery7.jpg?alt=media&token=83827b0f-2e13-4262-985b-96cb8b7e3bda">
+					</div>
+					<div class="col m6">
+						<img class="materialboxed gallery-photo" data-caption="LEDs all showing blue."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery8.jpg?alt=media&token=860f085d-d9aa-43d7-b58c-f6a803003292">
+					</div>
+					<div class="col m6 pull-m6">
+						<img class="materialboxed gallery-photo" data-caption="4x4x4 Blue LED cube. Predecessor to this project."
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fgallery9.jpg?alt=media&token=b0bccaef-b7ce-4a3a-9fb5-522b027d530f">
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
+
 		<div class="col hide-on-small-only m3 l2">
 			<div class="toc-wrapper pinned">
 				<div class="toc-margin">
@@ -83,8 +245,12 @@
 						<ul class="section table-of-contents">
 							<li><a href="#overview">Overview</a></li>
 							<li><a href="#cube">The Cube</a></li>
+							<li><a href="#atmega">Standalone Arduino</a></li>
 							<li><a href="#shift">Shift Registers</a></li>
+							<li><a href="#BAM">Bit Angle Modulation</a></li>
+							<li><a href="#ISR">Interrupt Service Routine</a></li>
 							<li><a href="#code">The Code</a></li>
+							<li><a href="#gallery">Gallery</a></li>
 						</ul>
 					</div>
 				</div>

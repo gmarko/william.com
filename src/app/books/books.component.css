@@ -1,7 +1,3 @@
-.title-nav {
-	background-color: #03A9F4;
-}
-
 .books {
 	width: 90%;
 	margin: 20px auto;
@@ -45,4 +41,9 @@ h4 {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
 	color: green;
+}
+
+.load-more {
+	margin-top: 20px;
+	text-align: center;
 }
