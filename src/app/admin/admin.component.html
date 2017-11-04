@@ -1,12 +1,198 @@
-<nav class="title-nav">
+<nav class="admin-nav">
 	<div class="nav-wrapper">
 		<a class="brand-logo center">Admin Panel</a>
 		<ul class="right">
-			<li><a class="waves-effect waves-light btn red" (click)="logout()">Log Out</a></li>
+			<li><a class="waves-effect waves-light btn red darken-1" (click)="logout()">Log Out</a></li>
 		</ul>
 	</div>
 </nav>
 
+<div class="add-project-section">
+
+	<div class="row">
+		<h4 class="center-align">Edit Project</h4>
+	</div>
+
+	<form (ngSubmit)="updateProject()" autocomplete="off" [formGroup]="editProjectForm">
+		<div class="row">
+			<div class="input-field col s8">
+				<input formControlName="routerLink" id="edit_project_router_link" type="text" class="validate">
+				<label for="edit_project_router_link">RouterLink</label>
+			</div>
+			<div class="col s4">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Update Project
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="edit_project_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="edit_project_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+	</form>
+
+	<div class="row">
+		<h4 class="center-align">Add Project</h4>
+	</div>
+
+	<form (ngSubmit)="createProject()" autocomplete="off" [formGroup]="createProjectForm">
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="title" id="project_title" type="text" class="validate">
+				<label for="project_title">Title</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<input formControlName="date_completed" id="project_date_completed" type="text" class="validate">
+				<label for="project_date_completed">Date Completed</label>
+			</div>
+			<div class="input-field col s6">
+				<input formControlName="routerLink" id="project_router_link" type="text" class="validate">
+				<label for="project_router_link">RouterLink</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<span class="badge left dlcolor">DL</span>
+			<span class="badge left hwcolor">HARDWARE</span>
+			<span class="badge left bccolor">BLOCKCHAIN</span>
+			<span class="badge left webcolor">WEB</span>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="category" id="project_category" type="text" class="validate">
+				<label for="project_category">Category</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="cover_image" id="project_cover_image" type="text" class="validate">
+				<label for="project_cover_image">Cover Image Link</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="project_short_description" formControlName="short_description" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="project_short_description" class="landing-label">Short Description:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="project_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="project_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Create Project
+				</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+
+<div class="add-project-section">
+
+	<hr>
+
+	<div class="row">
+		<h4 class="center-align">Edit Tutorial</h4>
+	</div>
+
+	<form (ngSubmit)="updateTutorial()" autocomplete="off" [formGroup]="editTutorialForm">
+		<div class="row">
+			<div class="input-field col s8">
+				<input formControlName="routerLink" id="edit_tutorial_router_link" type="text" class="validate">
+				<label for="edit_tutorial_router_link">RouterLink</label>
+			</div>
+			<div class="col s4">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Update Tutorial
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="edit_tutorial_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="edit_tutorial_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+	</form>
+
+	<div class="row">
+		<h4 class="center-align">Add Tutorial</h4>
+	</div>
+
+	<form (ngSubmit)="createTutorial()" autocomplete="off" [formGroup]="createTutorialForm">
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="title" id="tutorial_title" type="text" class="validate">
+				<label for="project_title">Title</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="routerLink" id="tutorial_router_link" type="text" class="validate">
+				<label for="tutorial_router_link">Router Link</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<span class="badge left dlcolor">DL</span>
+			<span class="badge left hwcolor">HARDWARE</span>
+			<span class="badge left bccolor">BLOCKCHAIN</span>
+			<span class="badge left webcolor">WEB</span>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="category" id="tutorial_category" type="text" class="validate">
+				<label for="tutorial_category">Category</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="tutorial_short_description" formControlName="short_description" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="tutorial_short_description" class="landing-label">Short Description:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="tutorial_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="tutorial_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Create Tutorial
+				</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>
 
 <div class="add-book-section">
 
@@ -31,14 +217,20 @@
 		</div>
 
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="recommended-box col s5">
+				<input type="checkbox" class="filled-in" id="recommended-box"
+					[(ngModel)]="bookRecommended"
+					[ngModelOptions]="{standalone: true}">
+				<label for="recommended-box">Recommended</label>
+			</div>
+			<div class="input-field col s7">
 				<input formControlName="rating" id="rating" type="text" class="validate">
-				<label for="rating">Rating</label>
+				<label for="rating">Rating /10</label>
 			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<input formControlName="author" id="mediumLink" type="text" class="validate">
+				<input formControlName="mediumLink" id="mediumLink" type="text" class="validate">
 				<label for="mediumLink">Medium Link</label>
 			</div>
 		</div>
@@ -53,7 +245,7 @@
 
 		<div class="row">
 			<div class="file-field input-field col s12">
-				<div class="btn">
+				<div class="btn blue darken-4">
 					<span>File</span>
 					<input type="file" (change)="changeListener($event)">
 				</div>
@@ -68,7 +260,7 @@
 				<img class="image cover-preview">
 			</div>
 			<div class="col s4">
-				<button class="btn waves-effect waves-light right-align" type="submit" name="action">Upload
+				<button class="btn waves-effect waves-light right-align blue darken-4" type="submit" name="action">Upload
 					<i class="material-icons right">file_upload</i>
 				</button>
 			</div>

@@ -11,3 +11,11 @@
 	 data-activates="sidenav" id="sidenav">
 	<side-nav></side-nav>
 </div>
+
+<div *ngIf="project" [innerHTML]="project.html | sanitizeHtml">
+
+</div>
+
+<div *ngIf="!project" class="project-not-found">
+	Project could not be found.
+</div>

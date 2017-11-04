@@ -43,13 +43,14 @@ export class BookService {
 
 	}
 
-	addBook(bookDetails, bookImage) {
+	addBook(bookDetails, bookImage, recommended) {
 
 		const uploadBookMetadata = Object.assign({}, bookDetails);
 
 		this.uploadBookImage(bookImage).then(snap => {
 
 			uploadBookMetadata.coverPhoto = snap.downloadURL;
+			uploadBookMetadata.recommended = recommended;
 
 			this.createBook(uploadBookMetadata).subscribe(upload => {
 				this.toastService.showToast(SUCCESS_TOAST, 'Book Successfully Uploaded!');

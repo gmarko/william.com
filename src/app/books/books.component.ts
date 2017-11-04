@@ -23,10 +23,8 @@ export class BooksComponent implements OnInit {
 
 		this.bookService.getInitialBooks().subscribe(
 			books => {
-				console.log('books recieved: ', books);
 				this.books = _.reverse(_.cloneDeep(books));
 				if (this.books.length < BOOKS_PAGE_SIZE) {
-					console.log('books length too short');
 					this.allBooksLoaded = true;
 				}
 			}

@@ -15,8 +15,4 @@ export class BitAngleModulationComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	back() {
-		this.router.navigate(['/', 'tutorials']);
-	}
-
 }

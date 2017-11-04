@@ -41,6 +41,34 @@ a:focus {
 	float: left;
 }
 
+.btn.focus, .btn:focus, .btn:hover {
+	color: white;
+}
+
+span.badge {
+	font-weight: 300;
+	font-size: 0.8rem;
+	color: #fff;
+	background-color: #26a69a;
+	border-radius: 2px;
+}
+
+span.dlcolor {
+	background-color: #FF5722;
+}
+
+span.hwcolor {
+	background-color: #607D8B;
+}
+
+span.bccolor {
+	background-color: #212121;
+}
+
+span.webcolor {
+	background-color: #4CAF50;
+}
+
 /* MOBILE FIRST CLASSES */
 
 /* Extra Small Devices, Phones */

@@ -1,0 +1,46 @@
+.tutorial-title-wrapper {
+	text-align: center;
+	clear: both;
+}
+
+.back_arrow {
+	color: black;
+	display: inline-block;
+	margin-top: 22px;
+	margin-left: 22px;
+	padding-left: 0;
+}
+
+.tutorial-title {
+	font-family: "Times New Roman", serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+	display: inline-block;
+	font-size: 32px;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tutorial-not-found {
+	text-align: center;
+	margin-top: 30px;
+	font-size: 24px;
+}
+
+.ifnotfound {
+	font-size: 12px;
+	color: darkgrey;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 992px) {
+	.back_arrow {
+		display: none;
+	}
+	.tutorial-wrapper {
+		margin-top: 30px;
+	}
+}
+
+

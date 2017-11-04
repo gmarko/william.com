@@ -22,10 +22,15 @@ import { SigninComponent } from './signin/signin.component';
 import {SignedInGuard} from './shared/guards/signedIn.guard';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { HomeComponent } from './home/home.component';
-import { LedCubeComponent } from './projects/collection/led-cube/led-cube.component';
 import { ProjectComponent } from './projects/project/project.component';
 import { TutorialsListComponent } from './tutorials/tutorials-list/tutorials-list.component';
-import {BitAngleModulationComponent} from './tutorials/collection/bit-angle-modulation/bit-angle-modulation.component';
+import {SanitizeHtmlPipe} from './shared/pipes/sanitizeHtml.pipe';
+import {ProjectService} from './services/project.service';
+import { TutorialComponent } from './tutorials/tutorial/tutorial.component';
+import {TutorialService} from './services/tutorial.service';
+import { ProjectTestComponent } from './projects/project-test/project-test.component';
+import { TutorialTestComponent } from './tutorials/tutorial-test/tutorial-test.component';
+import { ResumeComponent } from './extras/resume/resume.component';
 
 @NgModule({
 	declarations: [
@@ -37,10 +42,13 @@ import {BitAngleModulationComponent} from './tutorials/collection/bit-angle-modu
 		SigninComponent,
 		ProjectsListComponent,
 		HomeComponent,
-		LedCubeComponent,
 		ProjectComponent,
 		TutorialsListComponent,
-		BitAngleModulationComponent
+		SanitizeHtmlPipe,
+		TutorialComponent,
+		ProjectTestComponent,
+		TutorialTestComponent,
+		ResumeComponent
 	],
 	imports: [
 		BrowserModule,
@@ -57,7 +65,9 @@ import {BitAngleModulationComponent} from './tutorials/collection/bit-angle-modu
 		ToastService,
 		BookService,
 		AuthGuard,
-		SignedInGuard
+		SignedInGuard,
+		ProjectService,
+		TutorialService
 	],
 	bootstrap: [AppComponent]
 })

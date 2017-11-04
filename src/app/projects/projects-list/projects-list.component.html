@@ -1,30 +1,65 @@
 <nav class="title-nav">
 	<div class="nav-wrapper">
-		<a class="brand-logo center">Projects</a>
+		<a class="brand-logo center projects-title">Projects</a>
 	</div>
 </nav>
 
 
-<div class="project-container">
+<div class="project-container" *ngIf="projects">
 
 	<div class="row">
-		<div class="col m6">
-			<div (click)="goToLEDCube()" class="card project-card">
-				<div class="card-image">
-					<img src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Foverview.jpg?alt=media&token=6fa255f2-8974-4f97-b8bf-64fbc365d7a9">
-					<span class="card-title right-align">4x4x4 RGB LED Cube</span>
+		<div *ngFor="let project of projects" class="col m6">
+			<div class="card project-card">
+				<div (click)="goToProject(project)" class="card-image">
+					<img [src]="project.cover_image">
+					<span class="card-title right-align">{{project.title}}</span>
 				</div>
 				<div class="card-content">
+
+					<!--<span *ngIf="project.category == 'HARDWARE'" class="badge left hwcolor tooltipped hidden-smplus"-->
+						<!--materialize="tooltip" data-position="top"-->
+						<!--data-delay="50" data-tooltip="HARDWARE">HDW</span>-->
+					<span *ngIf="project.category == 'HARDWARE'" class="badge left hwcolor">HARDWARE</span>
+					<span *ngIf="project.category == 'WEB'" class="badge left webcolor">WEB</span>
+					<!--<span *ngIf="project.category == 'DL'" class="badge left dlcolor tooltipped"-->
+						<!--materialize="tooltip" data-position="top"-->
+						<!--data-delay="50" data-tooltip="DEEP LEARNING">DL</span>-->
+					<span *ngIf="project.category == 'DL'" class="badge left dlcolor">DEEP LEARNING</span>
+					<span *ngIf="project.category == 'BLOCKCHAIN'" class="badge left hwcolor">BLOCKCHAIN</span>
+
 					<p class="right-align date">
-						Added Sept. 18 2017
+						Completed {{project.date_completed}}
 					</p>
-					<p>
-						The RGB LED Cube is capable of displaying 15 degrees of brightness on
-						each of it's 192 LEDs. All controlled by a single Arduino chip.
-					</p>
+
+					<div class="row" *ngIf="project.category !== 'HARDWARE'; else hardware_short_description">
+						<div class="col xl9">
+							<p [innerHTML]="project.short_description | sanitizeHtml"></p>
+						</div>
+						<div class="col xl3 stack">
+							<span class="stack-header">TECH STACK:</span>
+							<ul>
+								<li class="stack-list" *ngFor="let tech of project.stack">-&nbsp;{{tech}}</li>
+							</ul>
+							<div *ngIf="project.live" class="valign-wrapper live-link" (click)="goToWebsite(project.live)">
+								<span>SEE LIVE</span>
+								<i class="material-icons live-icon">launch</i>
+							</div>
+						</div>
+					</div>
+
+					<ng-template #hardware_short_description>
+						<p [innerHTML]="project.short_description | sanitizeHtml"></p>
+					</ng-template>
+
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 
+</div>
+
+<div class="load-more">
+	<a *ngIf="!allProjectsLoaded" (click)="loadMoreProjects()">Load more</a>
 </div>

@@ -3,8 +3,17 @@
 	margin: 20px auto;
 }
 
+.books-title {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
 .intro-paragraph {
 	font-family: 'Lato', sans-serif;
+	font-style: italic;
 	width: 60%;
 	font-size: 1.8em;
 	margin: 20px auto 30px auto;
@@ -30,9 +39,21 @@ h4 {
 	font-style: italic;
 }
 
+.recommended {
+	float: right;
+	cursor: default;
+	padding-right: 5px;
+	padding-top: 1px;
+}
+
+.recommended-star {
+	color: #FFC107;
+}
+
 .rating {
 	float: right;
 	font-size: 1.4em;
+	cursor: default;
 }
 
 .description {
@@ -46,4 +67,34 @@ h4 {
 .load-more {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.visible-md-flex {
+	display: none!important;
+}
+
+.visible-xs-flex {
+	display: none!important;
+}
+
+@media (min-width: 631px) {
+	.visible-md-flex {
+		display: flex!important;
+	}
+}
+
+@media (max-width: 630px) {
+	.visible-xs-flex {
+		display: block!important;
+	}
+	.card-image {
+		width: 60%;
+		margin: 0 auto;
+	}
+	.card-content {
+		margin-top: 10px;
+	}
+	.intro-paragraph {
+		width: 90%;
+	}
 }

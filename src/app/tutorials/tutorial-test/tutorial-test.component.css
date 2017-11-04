@@ -1,0 +1,74 @@
+.tutorial {
+	margin: 30px auto 50px;
+	width: 85%;
+}
+
+.tutorial * {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+p > span.code {
+	font-family: 'Monaco', sans-serif;
+}
+
+.tutorial-photo {
+	margin: 20px auto 40px;
+}
+
+.tutorial-paragraph {
+	font-size: 18px;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.tutorial-note {
+	font-size: 18px;
+	text-align: center;
+	margin-top: 30px;
+	color: #9E9E9E;
+}
+
+.tutorial-important {
+	font-size: 18px;
+	text-align: center;
+	margin-top: 30px;
+	color: #F44336;
+}
+
+.terminal-command {
+	background-color: #424242;
+	color: white;
+	width: 80%;
+	margin: 30px auto;
+	padding: 18px;
+	font-family: 'Monaco', sans-serif !important;
+	font-size: 18px;
+	text-align: left;
+}
+
+.normal-code {
+	width: 80%;
+	margin: 30px auto;
+	background-color: #f5f2f0;
+	font-family: 'Monaco', sans-serif !important;
+}
+
+.tutorial-list {
+	width: 80%;
+	margin: 10px auto;
+	font-size: 16px;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	.terminal-command {
+		width: 100%;
+	}
+	.normal-code {
+		width: 100%;
+	}
+	.tutorial-list {
+		width: 100%;
+	}
+}

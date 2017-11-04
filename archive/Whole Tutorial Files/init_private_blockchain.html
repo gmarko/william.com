@@ -1,0 +1,224 @@
+<style>
+
+	.tutorial {
+		margin: 30px auto 50px;
+		width: 85%;
+	}
+
+	.tutorial * {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+	}
+
+	.tutorial-paragraph {
+		font-size: 18px;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.tutorial-note {
+		font-size: 18px;
+		text-align: center;
+		margin-top: 30px;
+		color: #9E9E9E;
+	}
+
+	.tutorial-important {
+		font-size: 18px;
+		text-align: center;
+		margin-top: 30px;
+		color: #F44336;
+	}
+
+	.terminal-command {
+		background-color: #424242;
+		color: white;
+		width: 80%;
+		margin: 30px auto;
+		padding: 18px;
+		font-family: 'Monaco', sans-serif !important;
+		font-size: 18px;
+		text-align: left;
+	}
+
+	.normal-code {
+		width: 80%;
+		margin: 30px auto;
+		background-color: #f5f2f0;
+		font-family: 'Monaco', sans-serif !important;
+	}
+
+	.tutorial-list {
+		width: 80%;
+		margin: 10px auto;
+		font-size: 16px;
+	}
+
+	/* Extra Small Devices, Phones */
+	@media only screen and (max-width : 480px) {
+		.terminal-command {
+			width: 100%;
+		}
+		.normal-code {
+			width: 100%;
+		}
+		.tutorial-list {
+			width: 100%;
+		}
+	}
+
+
+</style>
+
+<div class="tutorial">
+
+	<p class="tutorial-paragraph">
+		To start, make sure you have geth installed on your computer. You can find
+		instructions to do so here: <a href="https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum">Installing Geth</a>
+	</p>
+
+	<p class="tutorial-paragraph">
+		Then prepare your environment by creating an empty directory for your private network
+	</p>
+	<pre class="terminal-command">> mkdir myprivatenetwork</pre>
+
+	<p class="tutorial-paragraph">
+		Then you have to prepare you genesis.json file. This will define the first block of your
+		blockchain. Make sure you set the settings in this file right, because once you initialize the
+		chain there is no way to change them unless you delete the entire chain and start over. The genesis.json
+		file should look something like this:
+	</p>
+
+	<pre class="normal-code">
+&#123;
+	&quot;coinbase&quot;   : &quot;0x0000000000000000000000000000000000000001&quot;,
+	&quot;difficulty&quot; : &quot;0x20000&quot;,
+	&quot;extraData&quot;  : &quot;&quot;,
+	&quot;gasLimit&quot;   : &quot;0x47D5CC&quot;,
+	&quot;nonce&quot;      : &quot;0x0000000000000042&quot;,
+	&quot;mixhash&quot;    : &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+	&quot;parentHash&quot; : &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+	&quot;timestamp&quot;  : &quot;0x00&quot;,
+	&quot;alloc&quot;: &#123;&#125;,
+	&quot;config&quot;: &#123;
+		&quot;chainId&quot;: 15,
+		&quot;homesteadBlock&quot;: 0,
+		&quot;eip155Block&quot;: 0,
+		&quot;eip158Block&quot;: 0
+	&#125;
+&#125;</pre>
+
+	<p class="tutorial-paragraph">
+		The genesis.json file outlines the parameters for your blockchain. Some important parameters include:
+	</p>
+
+	<ul class="tutorial-list">
+		<li>- mixhash: A 256-bit hash that combined with the nonce proves that the Proof-of-Work has been done for this block.</li>
+		<li>- difficulty: A scalar value that corresponds to the difficulty of this block. This can be
+			derived from the previous block's difficulty and timestamp.</li>
+		<li>- coinbase: The 160-bit address that determines who the block reward will go to. Each miner
+			will replace this value with their own address from this block forward.</li>
+		<li>- parentHash: The Keccak 256-bit hash of the parent block's header incl. it's nonce and mixhash.</li>
+		<li>- gasLimit: A scalar value equal to the current limit of gas expenditure per block. This limits how many commands
+			can be executed in each block.</li>
+		<li>- chainId: This will be the id of your chain. You can choose any network id other than 1-4 because
+			those are reserved for the public ethereum blockchains.</li>
+	</ul>
+
+	<p class="tutorial-paragraph">
+		Now make sure this genesis.json file is inside the root of your myprivatenetwork folder.
+	</p>
+
+	<pre class="terminal-command">
+> cd myprivatenetwork
+> ls
+genesis.json</pre>
+
+	<hr>
+
+	<p class="tutorial-paragraph">
+		Now you can initialize your blockchain with geth. Run the following command within
+		the myprivatenetwork directory.
+	</p>
+
+	<pre class="terminal-command">
+> geth --datadir=./chaindata/ init ./genesis.json</pre>
+
+	<p class="tutorial-paragraph">
+		Now your ethereum block chain is initialized with a starting block and the necessary folders
+		have all been set up inside the chaindata directory, which should be sitting right next to the
+		genesis.json file.
+	</p>
+
+	<pre class="terminal-command">
+> cd chaindata
+> ls
+geth  keystore</pre>
+
+	<p class="tutorial-paragraph">
+		All of your chaindata will be stored within geth/chaindata. You won't have to worry about the
+		geth directory anymore. The keystore directory is where all of your private keys are held, they will be named
+		in the format of UTC-publickey. These files contain your private keys and are encrypted with a password which you
+		will set later on. Don't worry if you don't have any now, we will create them later.
+	</p>
+
+	<hr>
+
+	<p class="tutorial-paragraph">
+		Now that your ethereum chain has been initialized, we actually need to start our node.
+		We do this from the myprivatenetwork directory. Note that we will have to specify our datadir parameter
+		with geth everytime because that is where we decided to store our chaindata. Without the --datadir command,
+		geth will attempt to start up a node that is connected to the public blockchain and that's not what we want.
+	</p>
+
+	<pre class="terminal-command">
+> pwd
+myprivatenetwork
+> geth --datadir=./chaindata/</pre>
+
+	<p class="tutorial-note">
+		Note: If you want to initialize geth to accessible by truffle or the browser,
+		you have to run geth --datadir=./chaindata/ --rpc --rpccorsdomain "http://localhost:8080"
+		or whatever port the browser is running on. Don't worry if your not, the previous command
+		will work just fine for now.
+	</p>
+
+	<hr>
+
+	<p class="tutorial-paragraph">
+		Now that our network is running, we need to attach to it to be able to interact with our node.
+		Keep the node running in the terminal and open another tab/window. Navigate to the same directory
+		(myprivatenetwork) and run this command:
+	</p>
+
+	<pre class="terminal-command">
+> geth attach</pre>
+
+	<p class="tutorial-important">
+		Important note for mac users: You will have to run a separate command because mac's need
+		to know where the geth.ipc file is. Instead of just running geth attach, you will need to run
+		geth attach ipc:./chaindata/geth.ipc
+	</p>
+
+	<p class="tutorial-paragraph">
+		This will open up an interaction window with the running geth node. From here you can execute a variety of
+		functions to interact with your node:
+	</p>
+
+	<pre class="terminal-command">
+> eth.accounts    # This will return empty because you haven't created any accounts yet.
+> miner.start(1)  # This will tell the node to start mining with one thread.
+> miner.stop()    # This stops the mining
+> personal.newAccount() # This will tell geth to create a new account.
+Passphrase: SuperSecurePassword123
+Repeat passphrase: SuperSecurePassword123
+> eth.accounts    # This will now return an account because we just created one.
+["0x1111111...111"]</pre>
+
+	<p class="tutorial-paragraph">
+		There are many more commands you can take advantage of. Learn more about them <a href="https://ethereum.gitbooks.io/frontier-guide/content/jsre.html">here</a>.
+		But now your private network is all set up! You can now interact with it on localhost:8545 with other tools such as
+		truffle. Just don't forget to enable rpc if you do decide to interact with the network using truffle.
+	</p>
+
+</div>

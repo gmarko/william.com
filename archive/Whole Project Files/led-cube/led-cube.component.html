@@ -1,8 +1,93 @@
-<!--<nav class="title-nav">-->
-	<!--<div class="nav-wrapper">-->
-		<!--<a class="brand-logo center">Project: 4x4x4 RGB LED Cube</a>-->
-	<!--</div>-->
-<!--</nav>-->
+<style>
+	.cover-image {
+		text-align: center;
+		width: 100%;
+		height: 400px;
+		background-size:cover;
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-image:url('https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Foverview.jpg?alt=media&token=6fa255f2-8974-4f97-b8bf-64fbc365d7a9');
+	}
+
+	.project-title {
+		font-size: 3em;
+		color: white;
+		padding-top: 160px;
+		font-family: 'Lato', sans-serif;
+	}
+
+	.project-date {
+		color: white;
+		font-style: italic;
+	}
+
+	.project-content {
+		margin-top: 50px;
+		font-size: 1.1em;
+	}
+
+	p {
+		font-family: "Roboto", sans-serif;
+		font-weight: 300;
+	}
+
+	.project-photo {
+		width: 100%;
+	}
+
+	.gallery-photo {
+		width: 100%;
+		margin: 10px auto;
+	}
+
+	.project-description {
+		font-size: 1.2em;
+	}
+
+	.led-cube {
+		margin: 0 auto;
+	}
+
+	.toc-margin {
+		margin-top: 100px;
+	}
+
+	.toc-header {
+		font-weight: 600;
+	}
+
+	.table-of-contents a.active {
+		border-left: 2px solid #03A9F4;
+	}
+
+	.table-of-contents a:hover {
+		border-left: 1px solid #03A9F4;
+	}
+
+	.bit-angle {
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	@media only screen and (min-width : 992px) {
+		.led-cube {
+			width: 90%;
+		}
+	}
+
+	/* Medium Devices, Desktops */
+	@media only screen and (max-width : 992px) {
+		.project-description {
+			margin-top: 20px;
+		}
+	}
+
+	.pinned {
+		position: fixed !important;
+	}
+
+</style>
 
 <div class="cover-image">
 	<div class="project-title">The 4x4x4 RGB LED Cube</div>
@@ -88,7 +173,7 @@
 						<p>
 							To program the chip once it was connected on the protoboard, a special programmer
 							board had to be used. Here's the one I used for this project:
-							<a href="http://www.kevindarrah.com/?page_id=1618">Buy Here</a>
+							<a target="_blank" href="http://www.kevindarrah.com/?page_id=1618">Buy Here</a>
 						</p>
 					</div>
 				</div>
@@ -143,7 +228,7 @@
 								In this project a 4-bit BAM was used, enabling 16 degrees of brightness for each LED.
 								This works by cycling through the levels and lighting up LEDs depending on their brightness value.
 								The Arduino will do this fast enough for there to be a perceived brightness for each LED. You can read
-								more about it in this <a [routerLink]="['/', 'tutorial', 'bit_angle_modulation']">tutorial</a>.
+								more about it in it's tutorial.
 							</p>
 						</div>
 					</div>
@@ -181,7 +266,7 @@
 				<div class="row project-content center-align">
 
 					<p>
-						The code is all in one single arduino .ino file. You can download it <a (click)="getCode()">here</a>.
+						The code is all in one single arduino .ino file. You can download it <a href="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Frgb_led_cube%2Fled_cube_code.ino?alt=media&token=ddb3b70e-ce17-44e2-9126-966cf91b076d">here</a>.
 					</p>
 
 				</div>

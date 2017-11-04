@@ -1,6 +1,6 @@
 <nav class="title-nav">
 	<div class="nav-wrapper">
-		<a class="brand-logo center">William's Book Review</a>
+		<a class="brand-logo center books-title">William's Book Review</a>
 	</div>
 </nav>
 
@@ -12,14 +12,20 @@
 		<div class="quote-author">- George R.R. Martin</div>
 	</div>
 
-	<div class="col s12 m7" *ngFor="let book of books">
-		<div class="card horizontal">
+	<div class="row" *ngFor="let book of books">
+
+		<!-- For large Sized Screens -->
+		<div class="card horizontal visible-md-flex">
 			<div class="card-image">
 				<img class="cover-image" [src]="book.coverPhoto">
 			</div>
 			<div class="card-stacked">
 				<div class="card-content">
 					<span class="rating">{{book.rating}} / 10</span>
+					<span *ngIf="book.recommended" class="recommended">
+						<i class="material-icons tooltipped recommended-star" materialize="tooltip"
+							data-position="top" data-delay="50" data-tooltip="Recommended">star</i>
+					</span>
 					<h4>{{book.title}}</h4>
 					<span class="author">{{book.author}} - {{book.date_added | date: 'MMM dd, y'}}</span>
 					<div class="description">{{book.description}}</div>
@@ -29,6 +35,26 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- For phone sized screens -->
+		<div class="card visible-xs-flex">
+			<div class="card-image">
+				<img class="cover-image" [src]="book.coverPhoto">
+			</div>
+			<div class="card-content">
+				<h4>{{book.title}}</h4>
+				<span class="rating">{{book.rating}} / 10</span>
+				<span *ngIf="book.recommended" class="recommended">
+					<i class="material-icons tooltipped recommended-star" materialize="tooltip"
+					   data-position="top" data-delay="50" data-tooltip="Recommended">star</i>
+				</span>
+				<p>{{book.description}}</p>
+			</div>
+			<div class="card-action right-align">
+				<a target="_blank" [href]="book.mediumLink">Read the full review on medium</a>
+			</div>
+		</div>
+
 	</div>
 
 </div>

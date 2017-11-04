@@ -1,3 +1,40 @@
-<p>
-  error404 works!
-</p>
+<div class="home">
+	<a (click)="shownav()" class="show-nav-button visible-sm visible-xs">
+		<i class="material-icons">menu</i>
+	</a>
+
+	<div class="error404">
+
+		<div class="error404title">Error 404: Page not found.</div>
+
+		<div class="row">
+			<div class="col s8">
+				<div class="lost-wrapper">
+					<p>Oh no! It seems like you might be lost!</p>
+					<p>You can find your way back with the navigation bar on the left or by using any of the direct links below:</p>
+					<p>To go to the projects list click <a [routerLink]="['/', 'projects_list']">here</a>,</p>
+					<p>click <a [routerLink]="['/', 'tutorials_list']">here</a> see all my tutorials, </p>
+					<p>and click <a [routerLink]="['/', 'books']">here</a> to check out my book review.</p>
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="image-wrapper">
+					<img src="assets/images/error404.jpg">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="side-nav fixed hide-on-small-only">
+	<side-nav></side-nav>
+</div>
+
+<div class="side-nav fixed visible-sm visible-xs" materialize="sideNav"
+	 [materializeActions]="sidenavActions"
+	 [materializeParams]="[{edge: 'left', draggable: true}]"
+	 data-activates="sidenav" id="sidenav">
+	<side-nav></side-nav>
+</div>

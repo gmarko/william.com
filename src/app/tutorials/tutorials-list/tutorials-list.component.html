@@ -1,19 +1,31 @@
-<nav class="title-nav">
-	<div class="nav-wrapper">
-		<a class="brand-logo center">Tutorials</a>
-	</div>
-</nav>
+<div class="tutorials-nav">
+	<h1 class="tutorials-title">Tutorials</h1>
+</div>
 
 <div class="tutorial-container">
 
-	<div (click)="goToBAM()" class="tutorial-card">
-		<div class="tutorial-header header-purple">
-			Bit Angle Modulation
+	<div *ngFor="let tutorial of tutorials" class="tutorial-row">
+
+		<span *ngIf="tutorial.category == 'HARDWARE'" class="badge hwcolor">HARDWARE</span>
+		<span *ngIf="tutorial.category == 'WEB'" class="badge webcolor">WEB</span>
+		<span *ngIf="tutorial.category == 'DL'" class="badge dlcolor">DEEP LEARNING</span>
+		<span *ngIf="tutorial.category == 'BLOCKCHAIN'" class="badge bccolor">BLOCKCHAIN</span>
+
+
+		<div class="tutorial-header">
+			<a (click)="goToTutorial(tutorial)" class="linked">{{tutorial.title}}</a>
 		</div>
-		<div class="tutorial-body body-purple">
-			I am a very simple card. I am good at containing small bits of information. I am convenient
-			because I require little markup to use effectively.
+		<div class="tutorial-body">
+			<a (click)="goToTutorial(tutorial)" class="linked">{{tutorial.short_description}}</a>
 		</div>
+		<div class="tutorial-date">
+			Published on {{tutorial.date_added | date: 'MMM d y'}}
+		</div>
+
 	</div>
 
+</div>
+
+<div class="load-more">
+	<a *ngIf="!allTutorialsLoaded" (click)="loadMoreTutorials()">Load more</a>
 </div>

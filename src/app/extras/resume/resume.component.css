@@ -1,0 +1,55 @@
+.resume {
+	margin-top: 40px;
+}
+
+.resume-wrapper {
+	padding: 20px;
+}
+
+.resume-box {
+	border-radius: 2px;
+	text-align: center;
+	padding: 55px 25px;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px;
+
+}
+
+.icon-wrapper {
+	border-radius: 100%;
+	border: 1px solid black;
+}
+
+.developer-icon {
+	font-size: 40px;
+}
+
+.title {
+	font-size: 25px;
+}
+
+.description {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.link {
+	margin-top: 40px;
+	font-size: 20px;
+}
+
+a:hover {
+	color: #039be5;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) and (max-width: 1200px) {
+	.container {
+		width: 85%;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.resume-box {
+		padding: 60px 40px;
+	}
+}

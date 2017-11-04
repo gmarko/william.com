@@ -7,4 +7,5 @@ export interface Book {
 	mediumLink: string;
 	date_added: number;
 	description: string;
+	recommended: boolean;
 }

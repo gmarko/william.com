@@ -1,0 +1,20 @@
+<div class="tutorial-wrapper" *ngIf="tutorial">
+
+	<i (click)="back()" class="material-icons back_arrow">arrow_back</i>
+
+	<div class="tutorial-title-wrapper">
+		<span class="tutorial-title">{{tutorial.title}}</span>
+	</div>
+
+	<div *ngIf="tutorial" [innerHTML]="tutorial.html | sanitizeHtml">
+
+	</div>
+
+	<div *ngIf="!tutorial" class="tutorial-not-found">
+		Loading...
+		<div class="ifnotfound">
+			If tutorial isn't loading, you may be lost! Please go back to the list of tutorials <a [routerLink]="['/', 'tutorials_list']">here</a>
+		</div>
+	</div>
+
+</div>

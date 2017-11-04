@@ -1,0 +1,313 @@
+<style>
+
+	.cover-image {
+		text-align: center;
+		width: 100%;
+		height: 400px;
+		background-size:cover;
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-image:url('https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2FApollo_Cover_Image.jpg?alt=media&token=bee8bc65-3760-43d0-bb88-d2853662aa48');
+	}
+
+	.project-header {
+		margin-top: 20px;
+		text-align: center;
+		width: 100%;
+		font-size: 1.6em;
+	}
+
+	.project-title {
+		font-size: 3em;
+		font-family: 'Lato', sans-serif;
+		text-decoration: underline;
+	}
+
+	.project-date {
+		font-style: italic;
+	}
+
+	.project-content {
+		margin-top: 50px;
+		font-size: 1.1em;
+	}
+
+	.full-project-content {
+		font-size: 1.1em;
+	}
+
+	p {
+		font-family: "Roboto", sans-serif;
+		font-weight: 300;
+	}
+
+	.project-photo {
+		width: 100%;
+	}
+
+	.caption {
+		margin-top: 7px;
+		text-align: center;
+		width: 100%;
+		color: darkgrey;
+	}
+
+	.project-description {
+		font-size: 1.2em;
+	}
+
+	.toc-margin {
+		margin-top: 100px;
+	}
+
+	.toc-header {
+		font-weight: 600;
+	}
+
+	.table-of-contents a.active {
+		border-left: 2px solid #03A9F4;
+	}
+
+	.table-of-contents a:hover {
+		border-left: 1px solid #03A9F4;
+	}
+
+	@media only screen and (min-width : 992px) {
+		.project-container {
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@media only screen and (max-width: 992px) {
+		.media-container {
+			float: none;
+		}
+		.media-icon {
+			max-height: 200px;
+			max-width: 200px;
+		}
+		.project-content {
+			text-align: center;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	.pinned {
+		position: fixed !important;
+	}
+
+</style>
+
+<div class="cover-image"></div>
+
+<div class="project-container">
+
+	<div class="row">
+		<div class="col s12 m9 l10">
+
+			<div class="row project-header">
+				<div class="project-title">Apollo</div>
+				<span class="project-date">Completed June 2017</span>
+			</div>
+
+			<div id="overview" class="section scrollspy">
+
+				<h2 class="center-align">Project Overview</h2>
+
+				<div class="row project-content">
+					<div class="project-description center">
+						<p>
+							Apollo was designed to be a simple replacement for the current rideshare
+							platforms on facebook. It allowed users to create trips and post them to be found
+							by other users. Users can search for trips by using from and to cities, as well as a
+							date. This project is powered by Ruby On Rails with a MongoDB backend. The frontend
+							is powered by Angular 2.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="functionality" class="section scrollspy">
+
+				<h2 class="center-align">Functionality</h2>
+
+				<div class="row project-content">
+					<div class="row">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Ftrip_details.jpg?alt=media&token=404c404d-01be-4208-8a95-7e1a0fa124c9">
+						<div class="caption">Viewing a trip detail from the driver's perspective.</div>
+					</div>
+					<div class="row project-description center">
+						<p>
+							When a rider visits the application, they are able to perform Login/Signup actions right on the main page,
+							along with the ability to search for trips using search criteria such as from, destination, and time. Once
+							the use finds a trip they would like to take, they can request it after logging in with their own
+							account. After requesting, the driver will then be able to see the request and choose to accept it or not.
+							Once the driver has accepted their passengers, both parties can reach out to each other using social media,
+							phone, or email which will all be provided to both parties after a trip is finalized.
+						</p>
+					</div>
+				</div>
+
+
+				<div class="row project-content">
+					<div class="col l6">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Fcreate_trip.jpg?alt=media&token=d182e9ff-3111-47fb-ac27-577fcbe93f06">
+					</div>
+					<div class="col l6 project-description">
+						<p>
+							A driver who wishes to post a listing can login to their account and click the create trip option
+							in the top nav bar, where they will be prompted to enter their car details and then enter in the details
+							of their trip. Drivers will be rated out of 5 for their trips and this rating will be visible to anyone who
+							finds one of their trips.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="authentication" class="section scrollspy">
+
+				<h2 class="center-align">Authentication</h2>
+
+				<div class="row project-content">
+					<div class="col l6">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Flogin_screen.jpg?alt=media&token=6c948376-2c1a-46ee-a192-1b8abd44d04b">
+					</div>
+					<div class="col l6 project-description">
+						<p>
+							Authentication in Apollo was handled with tokens. Every time the user needed
+							to make a request to the rails server, a JWT token would be passed along with the
+							headers of the http request. The JWT Token is initially provided to the web client
+							when the user logs in for the first time. It is then subsequently stored in the browser
+							as a cookie. This cookie would then be deleted upon logging out of the application.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="rails_server" class="section scrollspy">
+
+				<h2 class="center-align">Rails Server</h2>
+
+				<div class="row">
+					<img class="project-photo"
+						 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Foverview.jpg?alt=media&token=3b3cda0f-b8e0-4659-8e24-23a3393dcbfe">
+					<div class="caption">Demonstration of the search trips functionality.</div>
+				</div>
+
+				<div class="row full-project-content">
+					<div class="row project-description center">
+						<p>
+							The rails server was capable of handling a wide range of http requests to help add and query
+							data in the database. The rails server offered complete CRUD operations for the user class, as well as
+							being fully able to send email confirmation, forgot password, and update password emails from the application's
+							own email address.
+						</p>
+						<p>
+							The http endpoints to perform CRUD and query operations on the Trips stored in the database
+							were even more extensive, offering the ability to check listings, check authorization for certain listings,
+							getting the user's trips, checking if a trip was expired, full management of trip requests, and most importantly,
+							full search functionality for trips.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="database" class="section scrollspy">
+
+				<h2 class="center-align">MongoDB Database</h2>
+
+				<div class="row project-content">
+					<div class="col l3 media-container">
+						<img class="project-photo media-icon"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Fmongodb.jpg?alt=media&token=b92b960a-266c-4660-92eb-80aa6c4e9013">
+					</div>
+					<div class="col l9 project-description">
+						<p>
+							All of the data stored for the application was kept on a mongodb database. MongoDB was chosen because it offered
+							a free and easy way to store the application's data. It was also a NoSQL database which was something that I was
+							particularly interested in at the time because of it's flexibility and ease of use. It was also easily compatible with
+							the Ruby on Rails platform.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="hosting" class="section scrollspy">
+
+				<h2 class="center-align">Hosting</h2>
+
+				<div class="row project-content">
+					<div class="col l3 media-container">
+						<img class="project-photo media-icon"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Faws.png?alt=media&token=de6a3018-83d9-4a68-8aa3-2bacc88ead46">
+					</div>
+					<div class="col l9 project-description">
+						<p>
+							The Ruby on Rails server was hosted on AWS's Elastic Beanstalk environment. This provided an easy way
+							to deploy and monitor the application but eventually the cost of keeping this application running
+							was the reason it was eventually terminated. However, the MongoDB was hosted on a free sandbox node running
+							on MongoLAB, which offered free hosting for any node that was less than 500MB.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="code" class="section scrollspy">
+
+				<h2 class="center-align">The Code</h2>
+
+				<div class="row project-content">
+					<div class="col l3 media-container">
+						<img class="project-photo media-icon"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Fgithub.png?alt=media&token=2d598236-ed2a-467f-9529-285388ce84d4">
+					</div>
+					<div class="col l9 project-description">
+						<p>
+							All of the code for this project can be found at the two following github links:
+						</p>
+						<p>
+							The Angular 2 front-end application can be found <a target="_blank" href="https://github.com/william2958/ApolloRides">here</a>
+						</p>
+						<p>
+							The Ruby on Rails server application can be found <a target="_blank" href="https://github.com/william2958/Rideshare-Api">here</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col hide-on-small-only m3 l2">
+			<div class="toc-wrapper pinned">
+				<div class="toc-margin">
+
+					<div style="height: 1px;">
+						<div class="toc-header">Table of Contents</div>
+						<ul class="section table-of-contents">
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#functionality">Functionality</a></li>
+							<li><a href="#authentication">Authentication</a></li>
+							<li><a href="#rails_server">Rails Server</a></li>
+							<li><a href="#database">MongoDB</a></li>
+							<li><a href="#hosting">Hosting</a></li>
+							<li><a href="#code">The Code</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

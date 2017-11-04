@@ -1,10 +1,15 @@
-.title-nav {
-	background-color: #03A9F4;
+.admin-nav {
+	background-color: #0d47a1;
+}
+
+.add-project-section {
+	width: 80%;
+	margin: 10px auto;
 }
 
 .add-book-section {
 	width: 80%;
-	margin: 0 auto;
+	margin: 0 auto 30px;
 }
 
 .row {
@@ -17,4 +22,8 @@
 
 .cover-preview {
 	width: 66%;
+}
+
+.recommended-box {
+	padding-top: 12px;
 }
