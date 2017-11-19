@@ -39,7 +39,7 @@ export class TutorialsListComponent implements OnInit {
 
 		this.tutorialService.loadNextPage(_.last(this.tutorials).date_added).subscribe(
 			tutorials => {
-				const loadedTutorials = _.cloneDeep(tutorials);
+				const loadedTutorials = _.reverse(_.cloneDeep(tutorials));
 				for (const tutorial of loadedTutorials) {
 					this.tutorials.push(tutorial);
 				}

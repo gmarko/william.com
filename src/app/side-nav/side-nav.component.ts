@@ -22,5 +22,8 @@ export class SideNavComponent implements OnInit {
 	goToGithub() {
 		window.open('https://github.com/william2958', '_blank');
 	}
+	goToMedium() {
+		window.open('https://medium.com/@william2958', '_blank');
+	}
 
 }

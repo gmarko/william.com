@@ -16,13 +16,23 @@ export class ResumeComponent implements OnInit {
 
 	ngOnInit() {
 
-		firebase.initializeApp(firebaseConfig);
+		// If an firebase instance hasn't been initiated it will throw an exception.
+		try {
+			firebase.storage();
+			const storageRef = firebase.storage().ref();
+			const generalResumeRef = storageRef.child('resume/general_resume.pdf');
+			const developerResumeRef = storageRef.child('resume/developer_resume.pdf');
+			generalResumeRef.getDownloadURL().then(url => this.generalResumeDownloadUrl = url);
+			developerResumeRef.getDownloadURL().then(url => this.developerResumeDownloadUrl = url);
+		} catch (Exception) {
+			firebase.initializeApp(firebaseConfig);
+			const storageRef = firebase.storage().ref();
+			const generalResumeRef = storageRef.child('resume/general_resume.pdf');
+			const developerResumeRef = storageRef.child('resume/developer_resume.pdf');
+			generalResumeRef.getDownloadURL().then(url => this.generalResumeDownloadUrl = url);
+			developerResumeRef.getDownloadURL().then(url => this.developerResumeDownloadUrl = url);
+		}
 
-		const storageRef = firebase.storage().ref();
-		const generalResumeRef = storageRef.child('resume/general_resume.pdf');
-		const developerResumeRef = storageRef.child('resume/developer_resume.pdf');
-		generalResumeRef.getDownloadURL().then(url => this.generalResumeDownloadUrl = url);
-		developerResumeRef.getDownloadURL().then(url => this.developerResumeDownloadUrl = url);
 	}
 
 }

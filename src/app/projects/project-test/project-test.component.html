@@ -1,14 +1,27 @@
 <style>
 
-	.cover-image {
-		margin-top: 50px;
-		text-align: center;
+	.header-container {
+		height: 400px;
 		width: 100%;
-		height: 200px;
-		background-size:cover;
-		background-position:center center;
-		background-repeat:no-repeat;
-		background-image:url('https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Ffriday%2Ffriday_cover.png?alt=media&token=0c67d88f-33ad-47bb-81fc-c702e3962018');
+		text-align: center;
+	}
+
+	.ethereum-logo {
+		max-width: 320px;
+		max-height: 139px;
+		margin-top: 80px;
+	}
+
+	.project-title {
+		font-size: 4em;
+		font-family: 'Lato', sans-serif;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.project-date {
+		font-style: italic;
+		text-align: center;
 	}
 
 	.project-content {
@@ -16,9 +29,22 @@
 		font-size: 1.1em;
 	}
 
+	.title-icon {
+		font-size: 0.9em;
+	}
+
 	p {
 		font-family: "Roboto", sans-serif;
 		font-weight: 300;
+	}
+
+	.clear-code {
+		width: 100%;
+		margin-top: 30px;
+		font-size: 13px;
+		font-family: 'Monaco', sans-serif !important;
+		text-align: left;
+		background-color: transparent;
 	}
 
 	.project-photo {
@@ -30,10 +56,18 @@
 		text-align: center;
 		width: 100%;
 		color: darkgrey;
+		margin-bottom: 10px;
 	}
 
 	.project-description {
 		font-size: 1.2em;
+		text-align: center;
+	}
+
+	.description-image {
+		width: 180px;
+		height: 180px;
+		margin-bottom: 30px;
 	}
 
 	.toc-margin {
@@ -52,6 +86,10 @@
 		border-left: 1px solid #03A9F4;
 	}
 
+	a:focus, a:hover {
+		color: #039be5;
+	}
+
 	@media only screen and (min-width : 992px) {
 		.project-container {
 			width: 90%;
@@ -60,13 +98,7 @@
 		}
 	}
 
-	@media only screen and (max-width: 992px) {
-		.media-container {
-			float: none;
-		}
-		.media-icon {
-			max-width: 200px;
-		}
+	@media only screen and (max-width: 991px) {
 		.project-content {
 			text-align: center;
 			padding-left: 20px;
@@ -77,13 +109,26 @@
 		}
 	}
 
+	/* Extra Small Devices, Phones */
+	@media only screen and (max-width : 480px) {
+		.description-image {
+			width: 120px;
+			height: 120px;
+		}
+	}
+
 	.pinned {
 		position: fixed !important;
 	}
 
+
 </style>
 
-<div class="cover-image"></div>
+<div class="header-container">
+	<img src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fdecentralized_amazon%2Fethereum.png?alt=media&token=bc9feab5-b535-468e-8cff-9e4ad3fab48b" class="ethereum-logo">
+	<div class="project-title">ERC20 Token Exchange</div>
+	<div class="project-date">Completed November 2017</div>
+</div>
 
 <div class="project-container">
 
@@ -97,14 +142,15 @@
 				<div class="row project-content">
 					<div class="project-description center">
 						<p>
-							Friday was designed to be a web based personal assistant that could keep track of all my online
-							data. This included passwords and notes thus far. It allowed other users to sign up and use the service
-							as well. This project is powered by Angular 4 and Google Firebase. Keeping all the technology within
-							Google's ecosystem allowed for easy integration between the front-end and the back-end. The hosting,
-							DNS, Database, and Authentication are all managed in the Firebase ecosystem.
+							The Token Exchange is a platform users can use to exchange various ERC20 compliant tokens for ether, using an easy
+							to use interface to post sales and view listings. The exchange contract stores both tokens and ether for users to easily
+							exchange between the two. The exchange smart contract is fully tested using truffle tests, and is currently deployed
+							on the ethereum Rinkeby network at address 0xe4b389a95263743320d3665a6dbed89fb12de86d. Users can interact with the contract
+							using a client-side ethereum node such as metamask or the mist browser.
 						</p>
 						<p>
-							F.R.I.D.A.Y. is live at: <a href="https://assistantfriday.com/">assistantfriday.com</a>
+							The Token Exchange currently running on the Rinkeby ethereum network and the front-end application can be found
+							<a target="_blank" href="https://william2958.github.io/ERC20TokenExchange/">here</a>.
 						</p>
 					</div>
 				</div>
@@ -118,31 +164,43 @@
 				<div class="row project-content">
 					<div class="row">
 						<img class="project-photo"
-							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Ffriday%2Ffunctionality.jpg?alt=media&token=630e8933-38fa-40c0-9838-8ab2a5ee28f7">
-						<div class="caption">When viewing your saved accounts.</div>
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Ffunctionality.jpg?alt=media&token=e0260e4d-d7e8-44aa-a20f-599b919c10b9">
+						<div class="caption">Overview of the manage Tokens page.</div>
 					</div>
 					<div class="row project-description center">
 						<p>
-							Once a user logs in to the application, they are presented with a side navigation menu with links
-							to view the user's notes, quicknotes, and accounts. Notes are long text documents that can only be edited
-							when they are logged in. Quicknotes are notes that can be quickly added from the landing page without even having
-							to login, and are added by simply providing an email address. To add/view accounts, they need to enter their own
-							pin that is used to encrypt the account passwords. This pin is never kept on any database and is the user's responsibility
-							to keep track of it, to make sure that the accounts are fully secured.
+							When a user visits the token exchange website, they are greeted with the page where they can deposit/withdraw tokens and ether. The exchange
+							can easily trade any ERC20 compliant token, since the current available token you see now is ERC20 compliant. The exchange handles all of the
+							token exchange logic for the client, so that the client only needs to choose how much ether they want to buy/sell their tokens for.
 						</p>
 					</div>
 				</div>
 
 
 				<div class="row project-content">
-					<div class="col l3">
+					<div class="row">
 						<img class="project-photo"
-							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Ffriday%2Fnew_account.jpg?alt=media&token=6f5dc4a3-3533-4e86-9921-744277edf506">
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Fmanagetoken.jpg?alt=media&token=5e8d9449-f7b5-4eb3-8380-217a2281f774">
+						<div class="caption">When viewing the manage token page.</div>
 					</div>
-					<div class="col l9 project-description">
+					<div class="row project-description center">
 						<p>
-							When creating an account, the user is able to generate a password with a variety
-							of options. They are also able to add a note to be stored with the account.
+							This is where the administrator (owner) of the exchange contract can add additional ERC20 tokens to traded on the exchange. Before a user can
+							add tokens to the exchange, they will need to approve the exchange at the ERC20 token contract, so that the exchange can withdraw the tokens from
+							the user's account. This is also done in this page. The user can also send tokens directly to another account here.
+						</p>
+					</div>
+				</div>
+
+				<div class="row project-content">
+					<div class="row">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Fbuyselltoken.png?alt=media&token=dcb03ca0-4961-4c5a-a59c-0d08065c596c">
+						<div class="caption">The Buy/Sell Token page.</div>
+					</div>
+					<div class="row project-description center">
+						<p>
+							In this page the user can view all available buy/sell prices for a particular token.
 						</p>
 					</div>
 				</div>
@@ -154,17 +212,13 @@
 				<h2 class="center-align">Authentication</h2>
 
 				<div class="row project-content">
-					<div class="col m6 l2">
-						<img class="project-photo"
-							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Ffriday%2Flogin.png?alt=media&token=42cf5e1c-4dd7-4837-a24a-a7c203574750">
-					</div>
-					<div class="col m6 l10 project-description">
+					<div class="project-description">
+						<img class="description-image" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Fmetamask.png?alt=media&token=4a69a4e9-f968-45cf-adb7-f297f8bafefb" alt="">
+						<img class="description-image" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Fmist.png?alt=media&token=020bd65d-2e4d-433f-843f-aaeafccb2cfe" alt="">
 						<p>
-							Authentication in Friday is handled with Firebase Authentication services. This allows
-							the application to easily offer Google OAuth sign in functionality. This also allows token
-							communication with the server so the user doesn't have to login every time they visit the website.
-							The login modal also offers a forgot password link, where the user can enter their email and
-							receive a password reset email.
+							Since this is a distributed application, all authentication is handled client-side by something like metamask or mist. Or geth
+							if you are interacting directly with the exchange contract. Authentication is secured inherently by the ethereum network, which verifies
+							all of your transactions with cryptography.
 						</p>
 					</div>
 				</div>
@@ -173,49 +227,75 @@
 
 			<div id="database" class="section scrollspy">
 
-				<h2 class="center-align">Firebase Real-Time Database</h2>
+				<h2 class="center-align"><i class="material-icons title-icon">storage</i> Storage</h2>
 
 				<div class="row project-content">
-					<div class="col s3 center-align">
-						<img class="project-photo"
-							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Ffriday%2Fdatabase.jpg?alt=media&token=c264f69d-5841-4d8d-9d3b-9921f4d692e6">
-					</div>
-					<div class="col s9 project-description">
+					<div class="col s12 project-description">
 						<p>
-							All of the data for this application is hosted on Firebase's Real-Time Database. This allowed for easy access by the
-							angular client, and enable easy CRUD and query operations on the data. The firebase database database is much less sophisticated
-							than something like MongoDB, but is more than capable for a simple application like Friday. It's key features are that it is
-							quick to set-up and use.
-						</p>
-						<p>
-							There are certain nodes of the database that are secured and cannot be accessed by every user.
-							These nodes are only accessible by Google Cloud Functions, which offers a secure way to interact
-							with the database, making sure that a malicious attacker cannot get access to other user's personal data. All of this is enabled by the
-							security rules of the Firebase Database and Google Cloud Functions.
+							All of the data that is necessary for this application, including your user token/ether balance
+							is all stored on the ethereum network, meaning every node has access to it. This means everyone will be
+							able to see how many tokens or ether you have, but also means that all of your data is super secure behind the
+							security guaranteed by the ethereum network.
 						</p>
 					</div>
 				</div>
 
 			</div>
 
-			<div id="dns" class="section scrollspy">
+			<div id="events" class="section scrollspy">
 
-				<h2 class="center-align">DNS</h2>
+				<h2 class="center-align">Events</h2>
 
 				<div class="row project-content">
-					<div class="project-description">
+					<div class="col s12 project-description">
 						<p>
-							Setting up the DNS for this application was actually quite challenging. First, when I first built friday with
-							Rails and MongoDB, the DNS was managed by CloudFlare after changing the namespace on GoDaddy. Another alternatives I
-							used were Route53 on AWS.
+							In order to keep the front-end updated and make sure everyone can see updated buy/sell orders when they are available,
+							a wide variety of events were needed. Here are all the events emitted by the token exchange contract.
 						</p>
+
+						<pre class="clear-code">
+// Events for deposit/withdrawal
+event DepositForTokenReceived(address indexed _from, uint indexed _symbolIndex, uint _amount, uint _timestamp);
+event WithdrawalToken(address indexed _to, uint indexed _symbolIndex, uint _amount, uint _timestamp);
+event DepositForEthReceived(address indexed _from, uint _amount, uint _timestamp);
+event WithdrawalEth(address indexed _to, uint _amount, uint _timestamp);
+
+// Events for orders
+event LimitSellOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
+event SellOrderFulfilled(uint indexed _symbolIndex, uint _amount, uint _priceInWei, uint _orderKey);
+event SellOrderCancelled(uint indexed _symbolIndex, uint _priceInWei, uint _orderKey);
+event LimitBuyOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
+event BuyOrderFulfilled(uint indexed _symbolIndex, uint _amount, uint _priceInWei, uint _orderKey);
+event BuyOrderCancelled(uint indexed _symbolIndex, uint _priceInWei, uint _orderKey);
+
+// Events for management
+event TokenAddedToSystem(uint _symbolIndex, string _token, uint _timestamp);</pre>
+
+						<div class="caption">The 11 events that are emitted by the exchange token contract.</div>
 						<p>
-							Luckily, Google Cloud Platform offers DNS hosting and now manages all the DNS for assistantfriday.com. The application
-							is hosted by firebase and the DNS namespace is also directed to firebase.
+							The front-end application will listen to these events and update the buy/sell order lists appropriately. It
+							will also listen for token/ether deposits and withdrawals, making sure the front-end balances are always updated.
+							These events can also be filtered so that the front-end only listens to deposits/withdrawals for their own account, for example.
 						</p>
 					</div>
 				</div>
 
+			</div>
+
+			<div id="testing" class="section scrollspy">
+
+				<h2 class="center-align">Testing</h2>
+
+				<div class="row project-content">
+					<div class="col s12 project-description">
+						<img class="description-image" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Ftruffle.png?alt=media&token=f990d824-750e-41e2-a362-1ad5b238c7cc" alt="">
+						<p>
+							Because ethereum contracts cannot be altered once deployed onto a public network, they need to be thoroughly tested in development.
+							The token exchange is very thoroughly tested using truffle, and makes sure that all of the features are working and that there are
+							no bugs before deployment. The contract is tested using chai and mocha.
+						</p>
+					</div>
+				</div>
 			</div>
 
 			<div id="code" class="section scrollspy">
@@ -223,13 +303,10 @@
 				<h2 class="center-align">The Code</h2>
 
 				<div class="row project-content">
-					<div class="col l3 media-container">
-						<img class="project-photo media-icon"
-							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Fgithub.png?alt=media&token=2d598236-ed2a-467f-9529-285388ce84d4">
-					</div>
-					<div class="col l9 project-description">
+					<div class="col s12 project-description">
+						<img class="description-image" src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2FTokenExchange%2Fgithub.png?alt=media&token=588aac1e-288e-4b5c-af58-1eba9647c3fc" alt="">
 						<p>
-							The Angular 4 front-end application can be found <a target="_blank" href="https://github.com/william2958/Friday4.0">here</a>
+							The Token Exchange contract, example ERC20 TokenContract, and front-end can both be found <a target="_blank" href="https://github.com/william2958/ERC20TokenExchange">here</a>
 						</p>
 					</div>
 				</div>
@@ -248,8 +325,9 @@
 							<li><a href="#overview">Overview</a></li>
 							<li><a href="#functionality">Functionality</a></li>
 							<li><a href="#authentication">Authentication</a></li>
-							<li><a href="#database">Database</a></li>
-							<li><a href="#dns">DNS</a></li>
+							<li><a href="#database">Storage</a></li>
+							<li><a href="#events">Events</a></li>
+							<li><a href="#testing">Testing</a></li>
 							<li><a href="#code">The Code</a></li>
 						</ul>
 					</div>

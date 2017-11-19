@@ -80,8 +80,22 @@
 
 		<div class="row">
 			<div class="input-field col s12">
+				<input formControlName="live" id="project_live" type="text">
+				<label for="project_live">Live link to project</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="stack" id="project_stack" type="text">
+				<label for="project_stack">Tech Stack, separated by commas. Eg: Angular 4,RoR,MongoDB</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
 				<textarea id="project_short_description" formControlName="short_description" type="text"
-						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+						  class="materialize-textarea landing-body-textarea"></textarea>
 				<label for="project_short_description" class="landing-label">Short Description:</label>
 			</div>
 		</div>
@@ -89,7 +103,7 @@
 		<div class="row">
 			<div class="input-field col s12">
 				<textarea id="project_html" formControlName="html" type="text"
-						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+						  class="materialize-textarea landing-body-textarea"></textarea>
 				<label for="project_html" class="landing-label">Html:</label>
 			</div>
 		</div>

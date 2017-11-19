@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProjectService} from '../services/project.service';
 import {TutorialService} from '../services/tutorial.service';
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'admin',
@@ -41,6 +42,8 @@ export class AdminComponent implements OnInit {
 			cover_image: ['', Validators.required],
 			category: ['', Validators.required],
 			routerLink: ['', Validators.required],
+			live: [''],
+			stack: [''],
 			short_description: ['', Validators.required],
 			html: ['', Validators.required]
 		});
@@ -77,8 +80,11 @@ export class AdminComponent implements OnInit {
 	}
 
 	createProject() {
+		const stackArray = this.createProjectForm.value.stack.split(',');
+		const projectFormCopy = _.cloneDeep(this.createProjectForm.value);
+		projectFormCopy.stack = stackArray;
 		if (this.createProjectForm.valid) {
-			this.projectService.createProject(this.createProjectForm.value).subscribe(() => {
+			this.projectService.createProject(projectFormCopy).subscribe(() => {
 				this.toastService.showToast(SUCCESS_TOAST, 'Project successfully created!');
 			});
 			this.createProjectForm.reset();

@@ -60,7 +60,9 @@ export class ProjectService {
 			routerLink: projectDetails.routerLink,
 			short_description: projectDetails.short_description,
 			title: projectDetails.title,
-			category: projectDetails.category
+			category: projectDetails.category,
+			stack: projectDetails.stack,
+			live: projectDetails.live
 		};
 
 		dataToSave['project/' + projectDetails.routerLink] = {

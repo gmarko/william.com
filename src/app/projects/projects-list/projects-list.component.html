@@ -8,11 +8,11 @@
 <div class="project-container" *ngIf="projects">
 
 	<div class="row">
-		<div *ngFor="let project of projects" class="col m6">
+		<div *ngFor="let project of projects; let i = index" class="col m6" [ngClass]="{'clear_right': i % 2 == 0}">
 			<div class="card project-card">
 				<div (click)="goToProject(project)" class="card-image">
 					<img [src]="project.cover_image">
-					<span class="card-title right-align">{{project.title}}</span>
+					<span class="card-title right-align" [ngClass]="{'dark_title': project.dark_title === true}">{{project.title}}</span>
 				</div>
 				<div class="card-content">
 
@@ -25,7 +25,7 @@
 						<!--materialize="tooltip" data-position="top"-->
 						<!--data-delay="50" data-tooltip="DEEP LEARNING">DL</span>-->
 					<span *ngIf="project.category == 'DL'" class="badge left dlcolor">DEEP LEARNING</span>
-					<span *ngIf="project.category == 'BLOCKCHAIN'" class="badge left hwcolor">BLOCKCHAIN</span>
+					<span *ngIf="project.category == 'BLOCKCHAIN'" class="badge left bccolor">BLOCKCHAIN</span>
 
 					<p class="right-align date">
 						Completed {{project.date_completed}}

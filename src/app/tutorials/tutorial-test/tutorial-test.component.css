@@ -1,3 +1,29 @@
+.tutorial-title-wrapper {
+	text-align: center;
+	clear: both;
+}
+
+.back_arrow {
+	color: black;
+	display: inline-block;
+	margin-top: 22px;
+	margin-left: 22px;
+	padding-left: 0;
+}
+
+.tutorial-title {
+	font-family: "Times New Roman", serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+	display: inline-block;
+	font-size: 32px;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ADD EVERYTHING BELOW THIS LINE */
+
 .tutorial {
 	margin: 30px auto 50px;
 	width: 85%;
@@ -16,10 +42,25 @@ p > span.code {
 	margin: 20px auto 40px;
 }
 
+.tutorial-header {
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: underline;
+	margin-top: 45px;
+	margin-bottom: 40px;
+}
+
 .tutorial-paragraph {
 	font-size: 18px;
 	text-align: center;
 	margin-top: 30px;
+}
+
+.tutorial-intro {
+	font-size: 21px;
+	margin-top: 45px;
+	margin-bottom: 45px;
 }
 
 .tutorial-note {
@@ -48,6 +89,7 @@ p > span.code {
 }
 
 .normal-code {
+	tab-size: 4;
 	width: 80%;
 	margin: 30px auto;
 	background-color: #f5f2f0;
@@ -55,13 +97,23 @@ p > span.code {
 }
 
 .tutorial-list {
+	tab-size: 4;
 	width: 80%;
 	margin: 10px auto;
 	font-size: 16px;
 }
 
+.caption {
+	margin-top: -10px;
+	font-size: 14px;
+	text-align: center;
+	width: 100%;
+	color: darkgrey;
+	margin-bottom: 10px;
+}
+
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width : 880px) {
 	.terminal-command {
 		width: 100%;
 	}

@@ -1,0 +1,352 @@
+<style>
+
+	.header-container {
+		height: 400px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.ethereum-logo {
+		width: 100px;
+		height: 100px;
+		margin-top: 80px;
+	}
+
+	.project-title {
+		font-size: 4em;
+		font-family: 'Lato', sans-serif;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.project-date {
+		font-style: italic;
+		text-align: center;
+	}
+
+	.project-content {
+		margin-top: 50px;
+		font-size: 1.1em;
+	}
+
+	p {
+		font-family: "Roboto", sans-serif;
+		font-weight: 300;
+	}
+
+	.normal-code {
+		width: 80%;
+		margin: 30px auto;
+		background-color: #f5f2f0;
+		font-family: 'Monaco', sans-serif !important;
+		text-align: left;
+	}
+
+	.project-photo {
+		width: 100%;
+	}
+
+	.caption {
+		margin-top: 7px;
+		text-align: center;
+		width: 100%;
+		color: darkgrey;
+	}
+
+	.project-description {
+		font-size: 1.2em;
+		text-align: center;
+	}
+
+	.toc-margin {
+		margin-top: 100px;
+	}
+
+	.toc-header {
+		font-weight: 600;
+	}
+
+	.table-of-contents a.active {
+		border-left: 2px solid #03A9F4;
+	}
+
+	.table-of-contents a:hover {
+		border-left: 1px solid #03A9F4;
+	}
+
+	@media only screen and (min-width : 992px) {
+		.project-container {
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@media only screen and (max-width: 991px) {
+		.media-container {
+			float: none;
+		}
+		.media-icon {
+			max-width: 200px;
+		}
+		.project-content {
+			text-align: center;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.project-description {
+			margin-top: 20px;
+		}
+	}
+
+	/* Extra Small Devices, Phones */
+	@media only screen and (max-width : 480px) {
+		.normal-code {
+			width: 100%;
+		}
+	}
+
+	.pinned {
+		position: fixed !important;
+	}
+
+
+</style>
+
+<div class="header-container">
+	<img src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fdecentralized_amazon%2Fethereum.png?alt=media&token=bc9feab5-b535-468e-8cff-9e4ad3fab48b" class="ethereum-logo">
+	<div class="project-title">Decentralized Amazon</div>
+	<div class="project-date">Completed September 2017</div>
+</div>
+
+<div class="project-container">
+
+	<div class="row">
+		<div class="col s12 m9 l10">
+
+			<div id="overview" class="section scrollspy">
+
+				<h2 class="center-align">Project Overview</h2>
+
+				<div class="row project-content">
+					<div class="project-description center">
+						<p>
+							Decentralized Amazon is a simple implementation of the Amazon online shopping experience but
+							on the ethereum blockchain. This allows the application to be fully decentralized and can be
+							accessed by anyone connected to the ethereum network. Users can interact and buy articles through a
+							entereum node such as metamask or mist. Tech stack: Plain JS + HTML + Web3.js + ethereum blockchain.
+						</p>
+						<p>
+							Decentralized Amazon currently running on the ethereum Rinkeby network and
+							the front-end application is live <a href="https://william2958.github.io/decentralized_amazon/">here.</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="functionality" class="section scrollspy">
+
+				<h2 class="center-align">Functionality</h2>
+
+				<div class="row project-content">
+					<div class="row">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fdecentralized_amazon%2FScreen%20Shot%202017-11-03%20at%2010.08.05%20PM.png?alt=media&token=b1ca1f0a-353d-4e9c-bcd1-51d04cb0671e">
+						<div class="caption">Main page of the application.</div>
+					</div>
+					<div class="row project-description center">
+						<p>
+							Once a user uses mist or metamask to connect to the application, their ethereum account information is read
+							by the application and it displays the user's current balance and coinbase address on the page. The main page of the
+							application lists all the available articles for sale, as well as offering users the option to purchase any listed articles.
+						</p>
+					</div>
+				</div>
+
+
+				<div class="row project-content">
+					<div class="col l3">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fdecentralized_amazon%2Fsell.png?alt=media&token=f2b89f1d-6a70-4f68-8622-f2ce38ee1706">
+					</div>
+					<div class="col l9 project-description">
+						<p>
+							Users are also able to list an article for sale through a modal. The user must pay for the gas required for listing
+							the article on the blockchain. Once the transaction is mined, other users will be able to immediately see the listing on their own
+							browsers through the event listed event, which all clients are listening to.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="web3" class="section scrollspy">
+
+				<h2 class="center-align">web3.js</h2>
+
+				<div class="row project-content">
+					<div class="col s12 project-description">
+						<p>
+							Decentralized Amazon uses the web3 javascript library to interact with the ethereum network through either metamask or mist. If the user
+							doesn't have metamask or mist, the application will attempt to connect to a private network through http://localhost:8545.
+						</p>
+						<p>
+							The application uses web3 to read the user's ethereum balance and the user's address. It also uses web3 to convert between wei and ether.
+							For example:
+						</p>
+						<pre class="normal-code">
+web3.eth.getCoinbase(function(err, account) &#123;
+	if (err === null) &#123;
+		App.account = account;
+		$('#account').text(account);
+		web3.eth.getBalance(account, function(err, balance) &#123;
+			if (err === null) &#123;
+				$('#accountBalance').text(web3.fromWei(balance, "ether") + " ETH");
+			&#125;
+		&#125;);
+	&#125;
+&#125;);</pre>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="truffle" class="section scrollspy">
+
+				<h2 class="center-align">Truffle</h2>
+
+				<div class="row project-content">
+					<div class="project-description">
+						<p>
+							This application was bootstrapped using truffle and uses truffle to compile and migrate the contracts necessary to the ethereum blockchain.
+						</p>
+						<p>
+							In app.js, the application uses the truffle-contract.js library to fetch an instance of the deployed contract and make
+							instance calls on it. The functions to get articles, sell articles, and buy articles are all using calls to the instance of the
+							contract retrieved by truffle. Here is an example of getting a contract instance and interacting with it using javascript:
+						</p>
+						<pre class="normal-code">
+buyArticle: function() &#123;
+	event.preventDefault();
+
+	// retrieve the article price
+	var _articleId = $(event.target).data('id');
+	var _price = parseFloat($(event.target).data('value'));
+
+	App.contracts.ChainList.deployed().then(function(instance) &#123;
+		return instance.buyArticle(_articleId, &#123;
+			from: App.account,
+			value: web3.toWei(_price, "ether"),
+			gas: 500000
+		&#125;);
+	&#125;).then(function(result) &#123;
+
+	&#125;).catch(function(err) &#123;
+		console.error(err);
+	&#125;);
+
+&#125;</pre>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="events" class="section scrollspy">
+
+				<h2 class="center-align">Event Handling</h2>
+
+				<div class="row project-content">
+					<div class="row project-description">
+						<p>
+							Whenever an article is listed or sold, an event is triggered to let the other users of the application know that an update
+							has occurred. This application has two event: sellArticleEvent(uint indexed _id, address indexed _seller, string _name, uint256 _price); and
+							buyArticleEvent(uint indexed _id, address indexed _seller, address indexed _buyer, string _name, uint256 _price).
+						</p>
+						<p>
+							The front-end application listens to the events and updates the interface accordingly. You can also see a list of all the events
+							ever fired from the application by clicking the Events button on the left. Both events can also be filtered by sender or buyer.
+						</p>
+					</div>
+					<div class="row">
+						<img class="project-photo"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fdecentralized_amazon%2Fevents.png?alt=media&token=97b69898-31cf-461a-bde1-2dee57ff1dae">
+						<div class="caption">Showing the events fired from the listing of an article and the purchase of an article.</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="testing" class="section scrollspy">
+
+				<h2 class="center-align">Testing</h2>
+
+				<div class="row project-content">
+					<div class="row project-description">
+						<p>
+							The DecentralizedAmazon contract used for this application is fully tested using truffle. Two unit tests exist for each function of the contract,
+							one for the normal function and one to test for exceptions. The test suite also includes testing for proper event firing.
+							All contracts are tested on a local testRPC node before deploying to a public blockchain.
+						</p>
+						<p>
+							Here is a basic example of a unit test making sure the contract is initialized properly.
+						</p>
+						<pre class="normal-code">
+// Test case: check initial values
+it("should be initialized with empty values", function() &#123;
+	return ChainList.deployed().then(function(instance) &#123;
+		chainListInstance = instance;
+		return chainListInstance.getNumberOfArticles();
+	&#125;).then(function(data) &#123;
+		assert.equal(data, 0x0, "number of articles must be zero");
+		return chainListInstance.getArticlesForSale();
+	&#125;).then(function(data) &#123;
+		assert.equal(data.length, 0, "articles for sale should be empty");
+	&#125;);
+&#125;);</pre>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="code" class="section scrollspy">
+
+				<h2 class="center-align">The Code</h2>
+
+				<div class="row project-content">
+					<div class="col l3 media-container">
+						<img class="project-photo media-icon"
+							 src="https://firebasestorage.googleapis.com/v0/b/william-9ab03.appspot.com/o/projectImages%2Fapollo_rides%2Fgithub.png?alt=media&token=2d598236-ed2a-467f-9529-285388ce84d4">
+					</div>
+					<div class="col l9 project-description">
+						<p>
+							The Github repository for this project can be found <a target="_blank" href="https://github.com/william2958/decentralized_amazon">here</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col hide-on-small-only m3 l2">
+			<div class="toc-wrapper pinned">
+				<div class="toc-margin">
+
+					<div style="height: 1px;">
+						<div class="toc-header">Table of Contents</div>
+						<ul class="section table-of-contents">
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#functionality">Functionality</a></li>
+							<li><a href="#web3">web3.js</a></li>
+							<li><a href="#truffle">truffle</a></li>
+							<li><a href="#events">Events</a></li>
+							<li><a href="#testing">Testing</a></li>
+							<li><a href="#code">The Code</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

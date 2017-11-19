@@ -106,7 +106,7 @@
 		Before we begin, you will need to install the appropriate dependencies.
 	</p>
 
-<pre class="terminal-command">
+	<pre class="terminal-command">
 npm install @ngrx/core @ngrx/store @ngrx/effects @ngrx/router-store --save
 npm install @ngrx/devtools --save-dev
 </pre>
@@ -161,7 +161,7 @@ export const INITIAL_APPLICATION_STATE: ApplicationState = &#123;
 	</p>
 
 
-<pre class="normal-code">
+	<pre class="normal-code">
 export interface HobbyData &#123;
 	hobbies: Hobby[];
 &#125;
@@ -179,7 +179,7 @@ export const INITIAL_HOBBY_DATA: HobbyData = &#123;
 		Now that you have your application state defined, we need to initialize the application state and store in your app module.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import &#123;RouterModule&#125; from "@angular/router";
 import &#123;StoreDevtoolsModule&#125; from "@ngrx/store-devtools";
 import &#123;Action, StoreModule&#125; from "@ngrx/store";
@@ -240,7 +240,7 @@ export class AppModule &#123; &#125;
 		example action first.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import &#123;Action&#125; from "@ngrx/store"
 
 export const HOBBIES_LOADED_ACTION = 'HOBBIES_LOADED_ACTION'
@@ -258,7 +258,7 @@ export class HobbiesLoadedAction implements Action &#123;
 		for example if you wanted to do so in a controller, you would use the store's dispatch method which basically just executes an action.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import &#123;Store&#125; from "@ngrx/store"
 constructor(private store: Store&lt;ApplicationState&gt;) &#123; &#125;
 housesLoaded() &#123;
@@ -274,7 +274,7 @@ housesLoaded() &#123;
 		will be listening to the HobbiesLoadedAction and it will look like:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 export function hobbyData(state: HobbyData, action: Action): HobbyData &#123;
 
 	switch (action.type) &#123;
@@ -318,7 +318,7 @@ function handleHobbiesLoadedAction(state: HobbyData, action: HobbiesLoadedAction
 		able to subscribe to that data too so we always get the most up-to-date data. Here's an example of a selector that gets us our hobbies array.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import &#123;ApplicationState&#125; from "../application-state";
 export function hobbiesSelector(state: ApplicationState): Hobby[] &#123;
 	return state.hobbyData.hobbies;
@@ -333,7 +333,7 @@ export function hobbiesSelector(state: ApplicationState): Hobby[] &#123;
 		component, or wherever you want to access the data. Here is an example of getting the hobbies in the initializer of a component.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 
 import &#123;hobbiesSelector&#125; from "/store/selectors/hobbies-selector";
 
@@ -367,7 +367,7 @@ ngOnDestroy() &#123;
 		in our view instead!
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 # Change the component to just this one line
 ngOnInit() &#123;
 	this.hobbies$ = this.store.select(hobbiesSelector);
@@ -398,7 +398,7 @@ export class HobbiesListComponent &#123;
 		a service call, so they can call HobbiesLoadedAction after the hobbies have been fetched. You can define an effect like so:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import ...
 
 @Injectable()
@@ -434,7 +434,7 @@ export class HobbyEffectService &#123;
 		You initiate this effect in the app module like so:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 @NgModule(&#123;
 	declarations: [...],
 	imports: [

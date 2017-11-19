@@ -23,18 +23,18 @@
 	<li><div class="divider"></div></li>
 	<li><a class="subheader">About Me</a></li>
 	<li><a class="waves-effect waves-teal" [routerLink]="['/', 'resume']">
-		<i class="material-icons">description</i>My Resume
+		<i class="material-icons">description</i>My Resume/Contact
 	</a></li>
-	<li><a class="waves-effect waves-teal" [routerLink]="['/', 'contact']">
-		<i class="material-icons">contact_mail</i>Contact
-	</a></li>
+	<!--<li><a class="waves-effect waves-teal" [routerLink]="['/', 'contact']">-->
+		<!--<i class="material-icons">contact_mail</i>Contact-->
+	<!--</a></li>-->
 
 	<li class="center-align media_group">
 		<a id="media_group_no_hover">
-			<img (click)="goToTwitter()"
-				 src="assets/images/twitter.svg" class="social_media_icon tooltipped"
-				 materialize="tooltip" data-position="bottom"
-				 data-delay="50" data-tooltip="Twitter">
+			<!--<img (click)="goToTwitter()"-->
+				 <!--src="assets/images/twitter.svg" class="social_media_icon tooltipped"-->
+				 <!--materialize="tooltip" data-position="bottom"-->
+				 <!--data-delay="50" data-tooltip="Twitter">-->
 			<img (click)="goToLinkedIn()"
 				 src="assets/images/linkedin.svg" class="social_media_icon tooltipped"
 				 materialize="tooltip" data-position="bottom"
@@ -43,6 +43,10 @@
 				 src="assets/images/github.svg" class="social_media_icon tooltipped"
 				 materialize="tooltip" data-position="bottom"
 				 data-delay="50" data-tooltip="GitHub">
+			<img (click)="goToMedium()"
+				 src="assets/images/medium.svg" class="social_media_icon tooltipped"
+				 materialize="tooltip" data-position="bottom"
+				 data-delay="50" data-tooltip="Medium">
 		</a>
 	</li>
 

@@ -14,6 +14,10 @@
 .project-card {
 }
 
+.dark_title {
+	color: black !important;
+}
+
 .card .card-content p.date {
 	color: #9E9E9E;
 	margin-bottom: 8px;
@@ -22,6 +26,7 @@
 .load-more {
 	margin-top: 20px;
 	text-align: center;
+	margin-bottom: 40px;
 }
 
 span.badge {
@@ -53,6 +58,14 @@ span.badge {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	-o-user-select: none;
+}
+
+.clear_right {
+	clear: both;
+}
+
+.card .card-image img {
+	min-height: 24vw;
 }
 
 /* Large Devices, Wide Screens */

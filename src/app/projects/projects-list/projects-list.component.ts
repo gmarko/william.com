@@ -39,7 +39,7 @@ export class ProjectsListComponent implements OnInit {
 
 		this.projectService.loadNextPage(_.last(this.projects).date_added).subscribe(
 			projects => {
-				const loadedProjects = _.cloneDeep(projects);
+				const loadedProjects = _.reverse(_.cloneDeep(projects));
 				for (const project of loadedProjects) {
 					this.projects.push(project);
 				}
