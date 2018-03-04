@@ -98,7 +98,7 @@
 		Javascript tests are written in this format:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 var MyContract = artifacts.require('./MyContract.sol');
 
 contract('MyContract', function(accounts) &#123;
@@ -144,7 +144,7 @@ contract('MyContract', function(accounts) &#123;
 		If you need to get more than one contract instance, you can just chain them together like so:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 var MyContract = artifacts.require('./MyContract.sol');
 var MySecondContract = artifacts.require('./MySecondContract.sol');
 
@@ -175,7 +175,7 @@ contract('MyContract', function(accounts) &#123;
 		Here is an example of an event test:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 it ("should be able to emit events properly", function() &#123;
 
 	return myContractInstance.fireEvent()
@@ -202,7 +202,7 @@ it ("should be able to emit events properly", function() &#123;
 	</p>
 
 
-<pre class="normal-code">
+	<pre class="normal-code">
 var MyContract = artifacts.require('./MyContract.sol');
 var MySecondContract = artifacts.require('./MySecondContract.sol');
 
@@ -253,7 +253,7 @@ contract('Change Balance Test', function(accounts) &#123;
 		want them. Here's how you can test for an exception in your contract:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 it("should throw an exception", function() &#123;
 
 	return MyContract.deployed().then(function(instance) &#123;
@@ -291,7 +291,7 @@ it("should throw an exception", function() &#123;
 		Solidity tests are written in this format:
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/MyContract.sol";
@@ -349,7 +349,7 @@ contract TestMyContract &#123;
 		it the first few times so I thought I would simplify it here and explain it a little more.
 	</p>
 
-<pre class="normal-code">
+	<pre class="normal-code">
 import "truffle/Assert.sol";
 
 // Proxy contract for testing throws
@@ -399,16 +399,17 @@ contract TestThrower &#123;
 		act as the intermediary between the test and the contract we want to test. This is what allows
 		us to make a raw call and not get a throw that will propagate itself to the caller. It
 		takes a constructor that will set the target contract's address. (the contract that is to be tested)
-		The data state variable is just to carry on any call parameters when calling the to be tested function.
-		In this case, it is empty since doThrow() doesn't require any parameters. (since msg.data is just the parameters
-		passed into the function with call(parameters))
+		The data state variable is just to carry the calldata when calling the to be tested function (including the
+		function identifier stored in the first four bytes of the calldata).
+		In this case, it is empty since doThrow() doesn't require any parameters. (since msg.data is just the calldata
+		used to call functions)
 	</p>
 
 	<p class="tutorial-paragraph">
 		Now in the testThrow() test, we are "priming the proxy" which is how we call the fallback function
 		in ThrowProxy. It kind of takes the throwProxy address and "casts" it to a Thrower contract so that
 		we can call the doThrow() on the proxy. Solidity automatically create the msg.data that we talked about,
-		and so our proxy is ready to execute the function we want to test. Once we call execute on the throwProxy,
+		and so our proxy knows which function to execute. Once we call execute on the throwProxy,
 		it counts as a raw call instead of a contract call (which won't give us another exception) and we can get
 		the response which is a boolean. (true for no exception, false for exception)
 	</p>

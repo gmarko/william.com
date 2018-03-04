@@ -5,8 +5,8 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProjectService} from '../services/project.service';
-import {TutorialService} from '../services/tutorial.service';
 import * as _ from 'lodash';
+import {TutorialService} from '../services/tutorial.service';
 
 @Component({
 	selector: 'admin',

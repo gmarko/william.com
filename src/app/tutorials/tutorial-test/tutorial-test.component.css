@@ -51,6 +51,14 @@ p > span.code {
 	margin-bottom: 40px;
 }
 
+.tutorial-sub-header {
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 45px;
+	margin-bottom: 40px;
+}
+
 .tutorial-paragraph {
 	font-size: 18px;
 	text-align: center;
@@ -78,6 +86,7 @@ p > span.code {
 }
 
 .terminal-command {
+	tab-size: 4;
 	background-color: #424242;
 	color: white;
 	width: 80%;
@@ -97,7 +106,6 @@ p > span.code {
 }
 
 .tutorial-list {
-	tab-size: 4;
 	width: 80%;
 	margin: 10px auto;
 	font-size: 16px;
