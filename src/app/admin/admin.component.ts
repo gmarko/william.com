@@ -42,7 +42,7 @@ export class AdminComponent implements OnInit {
 
 		this.createExperienceForm = this.fb.group({
 			title: ['', Validators.required],
-			date_began: ['', Validators.required],
+			date_started: ['', Validators.required],
 			date_ended: ['', Validators.required],
 			cover_image: ['', Validators.required],
 			routerLink: ['', Validators.required],

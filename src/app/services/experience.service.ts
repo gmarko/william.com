@@ -3,6 +3,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {FirebaseListFactoryOpts} from 'angularfire2/database/interfaces';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class ExperienceService {
@@ -38,10 +39,16 @@ export class ExperienceService {
 		dataToSave['experiences/' + experienceDetails.routerLink] = {
 			date_added: firebase.database.ServerValue.TIMESTAMP,
 			title: experienceDetails.title,
-			routerLink: experienceDetails.routerLink
+			routerLink: experienceDetails.routerLink,
+			date_started: experienceDetails.date_started,
+			date_ended: experienceDetails.date_ended,
+			cover_image: experienceDetails.cover_image,
+			short_description: experienceDetails.short_description,
 		};
 
-		dataToSave['experience/' + experienceDetails] = {
+		dataToSave['experience/' + experienceDetails.routerLink] = {
+			date_started: experienceDetails.date_started,
+			date_ended: experienceDetails.date_ended,
 			title: experienceDetails.title,
 			html: experienceDetails.html
 		};

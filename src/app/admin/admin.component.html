@@ -7,7 +7,97 @@
 	</div>
 </nav>
 
+<div class="add-experience-section">
+
+	<div class="row">
+		<h4 class="center-align">Edit Experience</h4>
+	</div>
+
+	<form (ngSubmit)="updateProject()" autocomplete="off" [formGroup]="editProjectForm">
+		<div class="row">
+			<div class="input-field col s8">
+				<input formControlName="routerLink" id="edit_experience_router_link" type="text" class="validate">
+				<label for="edit_experience_router_link">RouterLink</label>
+			</div>
+			<div class="col s4">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Update Experience
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="edit_experience_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea" data-length="160"></textarea>
+				<label for="edit_experience_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+	</form>
+
+	<div class="row">
+		<h4 class="center-align">Add Experience</h4>
+	</div>
+
+	<form (ngSubmit)="createExperience()" autocomplete="off" [formGroup]="createExperienceForm">
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="title" id="experience_title" type="text" class="validate">
+				<label for="experience_title">Title</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<input formControlName="date_started" id="experience_date_started" type="text" class="validate">
+				<label for="experience_date_started">Date Started</label>
+			</div>
+			<div class="input-field col s6">
+				<input formControlName="date_ended" id="experience_date_ended" type="text" class="validate">
+				<label for="experience_date_ended">Date Ended</label>
+			</div>
+			<div class="input-field col s6">
+				<input formControlName="routerLink" id="experience_router_link" type="text" class="validate">
+				<label for="experience_router_link">RouterLink</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input formControlName="cover_image" id="experience_cover_image" type="text" class="validate">
+				<label for="experience_cover_image">Cover Image Link</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="experience_short_description" formControlName="short_description" type="text"
+						  class="materialize-textarea landing-body-textarea"></textarea>
+				<label for="experience_short_description" class="landing-label">Short Description:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="experience_html" formControlName="html" type="text"
+						  class="materialize-textarea landing-body-textarea"></textarea>
+				<label for="experience_html" class="landing-label">Html:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect waves-light right blue darken-4" type="submit" name="action">Create Experience
+				</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+
 <div class="add-project-section">
+
+	<hr>
 
 	<div class="row">
 		<h4 class="center-align">Edit Project</h4>
