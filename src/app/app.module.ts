@@ -31,6 +31,8 @@ import {TutorialService} from './services/tutorial.service';
 import { ProjectTestComponent } from './projects/project-test/project-test.component';
 import { TutorialTestComponent } from './tutorials/tutorial-test/tutorial-test.component';
 import { ResumeComponent } from './extras/resume/resume.component';
+import { ExperienceListComponent } from './experience/experience-list/experience-list.component';
+import {ExperienceService} from './services/experience.service';
 
 @NgModule({
 	declarations: [
@@ -48,7 +50,8 @@ import { ResumeComponent } from './extras/resume/resume.component';
 		TutorialComponent,
 		ProjectTestComponent,
 		TutorialTestComponent,
-		ResumeComponent
+		ResumeComponent,
+		ExperienceListComponent
 	],
 	imports: [
 		BrowserModule,
@@ -67,7 +70,8 @@ import { ResumeComponent } from './extras/resume/resume.component';
 		AuthGuard,
 		SignedInGuard,
 		ProjectService,
-		TutorialService
+		TutorialService,
+		ExperienceService
 	],
 	bootstrap: [AppComponent]
 })

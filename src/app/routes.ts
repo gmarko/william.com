@@ -13,6 +13,7 @@ import {TutorialComponent} from './tutorials/tutorial/tutorial.component';
 import {ProjectTestComponent} from './projects/project-test/project-test.component';
 import {TutorialTestComponent} from './tutorials/tutorial-test/tutorial-test.component';
 import {ResumeComponent} from './extras/resume/resume.component';
+import {ExperienceListComponent} from './experience/experience-list/experience-list.component';
 
 export const routes: Routes = [
 
@@ -52,6 +53,10 @@ export const routes: Routes = [
 				path: 'adminPanel',
 				component: AdminComponent,
 				canActivate: [AuthGuard]
+			},
+			{
+				path: 'experience_list',
+				component: ExperienceListComponent
 			},
 			{
 				path: 'projects_list',
