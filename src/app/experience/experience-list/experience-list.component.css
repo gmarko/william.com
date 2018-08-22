@@ -1,4 +1,8 @@
-@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+nav {
+	width: calc(100% - 300px);
+	background-color: #1565C0;
+}
+
 header:after, #timeline .timeline-item:after, header:before, #timeline .timeline-item:before {
 	content: '';
 	display: block;
@@ -21,7 +25,7 @@ body {
 	background-size: cover;
 	margin: 0;
 	padding: 0;
-	font-family: helvetica, arial, tahoma, verdana;
+	font-family: 'lato', sans-serif;
 	line-height: 20px;
 	font-size: 14px;
 	color: #726f77;
@@ -39,16 +43,6 @@ a {
 	max-width: 1100px;
 	margin: 0 auto;
 	width: 90%;
-}
-
-h1, h2, h3, h4 {
-	font-family: "Dosis", arial, tahoma, verdana;
-	font-weight: 500;
-}
-
-.project-name {
-	text-align: center;
-	padding: 10px 0;
 }
 
 header {
@@ -208,6 +202,12 @@ header .social .btn {
 	-moz-box-shadow: 2px 2px 0 transparent;
 	-ms-box-shadow: 2px 2px 0 transparent;
 	box-shadow: 2px 2px 0 transparent;
+}
+
+@media only screen and (max-width : 992px) {
+	nav {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 768px) {

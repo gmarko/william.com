@@ -1,3 +1,8 @@
+nav {
+	width: calc(100% - 300px);
+	background-color: #1565C0;
+}
+
 .books {
 	width: 90%;
 	margin: 20px auto;
@@ -75,6 +80,12 @@ h4 {
 
 .visible-xs-flex {
 	display: none!important;
+}
+
+@media only screen and (max-width : 992px) {
+	nav {
+		width: 100%;
+	}
 }
 
 @media (min-width: 631px) {
